@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+<head>
+  <meta charset="utf-8">
+  <title>Soundclaz | Branding Agency - Digital Services</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+  <!-- SEO Meta Tags-->
+  <meta name="description" content="Soundclaz - Branding agaency">
+  <meta name="keywords"
+    content="bootstrap, business, branding agency, portfolio, services, branding, web design, logo design, animation">
+  <meta name="author" content="Soundclaz">
+
+  <!-- Viewport-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon and Touch Icons-->
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename="img/whiteicon.png") }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename="img/whiteicon.png") }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename="img/whiteicon.png") }}">
+  <link rel="manifest" href="{{ url_for('static', filename="img/site.webmanifest") }}">
+  <link rel="mask-icon" color="#5bbad5" href="{{ url_for('static', filename="img/safari-pinned-tab.svg") }}">
+  <meta name="msapplication-TileColor" content="#766df4">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Vendor Styles-->
+  <link rel="stylesheet" media="screen" href="{{ url_for('static', filename="vendor/lightgallery.js/dist/css/lightgallery.min.css") }}" />
+  <link rel="stylesheet" media="screen" href="{{ url_for('static', filename="vendor/tiny-slider/dist/tiny-slider.css") }}" />
+
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+
+  <!-- Main Theme Styles + Bootstrap-->
+  <link rel="stylesheet" media="screen" href="{{ url_for('static', filename="css/demo/creative-agency/theme.min.css")}}">
+
+  <!-- Page loading styles-->
+  <style>
+    .cs-page-loading {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-transition: all .4s .2s ease-in-out;
+      transition: all .4s .2s ease-in-out;
+      background-color: #fff;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 9999;
+    }
+
+    .cs-page-loading.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .cs-page-loading-inner {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+      -webkit-transition: opacity .2s ease-in-out;
+      transition: opacity .2s ease-in-out;
+      opacity: 0;
+    }
+
+    .cs-page-loading.active>.cs-page-loading-inner {
+      opacity: 1;
+    }
+
+    .cs-page-loading-inner>span {
+      display: block;
+      font-size: 1rem;
+      font-weight: normal;
+      color: #787a80;
+    }
+
+    .cs-page-spinner {
+      display: inline-block;
+      width: 2.75rem;
+      height: 2.75rem;
+      margin-bottom: .75rem;
+      vertical-align: text-bottom;
+      background-color: #cfcfd1;
+      border-radius: 50%;
+      opacity: 0;
+      -webkit-animation: spinner .75s linear infinite;
+      animation: spinner .75s linear infinite;
+    }
+
+    @-webkit-keyframes spinner {
+      0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+      }
+
+      50% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+      }
+    }
+
+    @keyframes spinner {
+      0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+      }
+
+      50% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+      }
+    }
+  </style>
+
+  <!-- Page loading scripts-->
+  <script>
+    (function () {
+      window.onload = function () {
+        var preloader = document.querySelector('.cs-page-loading');
+        preloader.classList.remove('active');
+        setTimeout(function () {
+          preloader.remove();
+        }, 2000);
+      };
+    })();
+  </script>
+</head>
+
+<!-- Body-->
+
+<body>
+
+  <!-- Page loading spinner
+  <div class="cs-page-loading active">
+    <div class="cs-page-loading-inner">
+      <div class="cs-page-spinner"></div><span>Loading...</span>
+    </div>
+  </div> -->
+
+  <!-- Main content-->
+  <!-- Wraps everything except footer to push footer to the bottom of the page if there is little content -->
+  <main class="cs-page-wrapper position-relative">
+    <!-- Navbar -->
+    <!-- Remove .navbar-sticky class to detach .navbar from page scroll -->
+         <header class="cs-header navbar navbar-expand-md navbar-light navbar-sticky">
+        <div class="container px-0 px-xl-3">
+          <a class="navbar-brand order-md-1 mr-md-5 mr-0 pr-lg-2" href="{{ url_for('main_site.index') }}">
+            <img src="{{ url_for('static', filename="img/creative-agency/logo-dark.svg") }}" alt="Createx Logo" width="130">
+          </a>
+          <div class="d-flex align-items-center order-md-3">
+            <a class="btn btn-primary btn-pill d-sm-inline-block d-none ml-3" href="{{ url_for("main_site.contact") }}">Contact us</a>
+            <button class="navbar-toggler ml-1 mr-n3" type="button" data-toggle="collapse" data-target="#navbarCollapse1" aria-expanded="false">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+          <nav class="collapse navbar-collapse order-md-2" id="navbarCollapse1">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('main_site.index') }}">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle active" href="#" data-toggle="dropdown">Portfolio</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="{{ url_for('main_site.portfolio') }}">Portfolio</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('main_site.guerrilla') }}">Advertisement Services</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('main_site.product') }}">Product Innovation</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('main_site.digital') }}">Digital Services</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('main_site.about') }}">About us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('blog.home') }}">Blog</a>
+              </li>
+              <li class="nav-item d-sm-none d-block">
+                <a class="nav-link" href="{{ url_for('main_site.contact') }}">Contact us</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+    <!-- Page content-->
+    <section class="container mt-3 mb-lg-6 mb-5 pt-md-4">
+      <ul class="nav nav-muted mb-2">
+        <li class="nav-item mr-2">
+          <a class="nav-link d-inline-block mr-2 p-0 font-weight-normal" href="#">
+          </a>
+        </li>
+      </ul>
+      <div class="text-center mb-4">
+        <h2 class="">OUR DIGITAL SERVICES</h3>
+      </div>
+
+        <!-- Share + Live demo -->
+        <!-- <div class="d-flex mt-lg-3 mt-2">
+          <div class="icon-dropdown icon-dropleft">
+            <a class="social-btn sb-outline sb-round" data-toggle="tooltip" data-placement="top" title="Share">
+              <i class="cxi-share"></i>
+            </a>
+            <ul class="icon-drop-menu bg-light">
+              <li class="icon-drop-item">
+                <a href="#" class="social-btn sb-outline sb-round">
+                  <i class="cxi-linkedin"></i>
+                </a>
+              </li>
+              <li class="icon-drop-item">
+                <a href="#" class="social-btn sb-outline sb-round">
+                  <i class="cxi-twitter"></i>
+                </a>
+              </li>
+              <li class="icon-drop-item">
+                <a href="#" class="social-btn sb-outline sb-round">
+                  <i class="cxi-facebook"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <a href="#" class="social-btn sb-outline sb-round ml-2" data-toggle="tooltip" data-placement="top"
+            title="Go to project">
+            <i class="cxi-arrow-share"></i>
+          </a>
+        </div> -->
+      </div>
+
+
+     
+      <!-- Latest projects -->
+      <section class=" py-lg-3 pb-4">
+        <div class="container pt-2 pt-lg-0">
+          <h2 class="h1 mb-0 text-primary" style="font-weight: 400;">Product Design</h2>
+          <div class="mb-lg-5 mb-4 d-flex justify-content-between">
+            <p class="mb-2"><strong>Product design</strong> is the process designers use to blend user needs with
+              business goals to help brands make consistently successful products.<br /> <strong>Product
+                Designers</strong> work to
+              optimize the user experience in the solutions they make for their users—and help their brands by making
+              products sustainable for longer-term business needs. </p>
+            <div class="tns-custom-controls cs-controls-inverse mb-md-n4" id="tns-portfolio-controls" tabindex="0">
+              <button type="button" data-controls="prev" tabindex="-1">
+                <i class="cxi-arrow-left"></i>
+              </button>
+              <button type="button" data-controls="next" tabindex="-1">
+                <i class="cxi-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+          <div class="container px-0">
+
+            <!-- Carousel -->
+            <div class="cs-carousel mt-n2 mb-lg-5 mb-4">
+              <div class="cs-carousel-inner" data-carousel-options='{
+            "nav": false,
+            "controlsContainer": "#tns-portfolio-controls",
+            "responsive": {
+              "0": {
+                "items": 1
+              },
+              "576": {
+                "items": 2
+              },
+              "768": {
+                "items": 3
+              }
+            }
+          }'>
+                <div class="rounded">
+                  <a class="cs-portfolio-card-scale text-decoration-none mt-3 mx-3" href="#">
+                    <div class="cs-portfolio-card-img">
+                      <img src="{{ url_for('static', filename="SOUNDCLAZ_IMAGES/choco_buscuit.jpg") }}" alt="Card image" style="height:300px">
+                    </div>
+                    <!-- <div class="cs-portfolio-card-body">
+                    <h3 class="cs-portfolio-card-title">LED Signages</h3>
+                    <span class="font-size-sm text-muted">Advertisement</span>
+                  </div> -->
+                  </a>
+                </div>
+                <div class="rounded">
+                  <a class="cs-portfolio-card-scale text-decoration-none mt-3 mx-3" href="#">
+                    <div class="cs-portfolio-card-img">
+                      <img src="{{ url_for('static', filename="SOUNDCLAZ_IMAGES/03.jpg") }}" alt="Card image" style="height:300px">
+                    </div>
+                    <!-- <div class="cs-portfolio-card-body">
+                    <h3 class="cs-portfolio-card-title">LED Signages</h3>
+                    <span class="font-size-sm text-muted">Signages</span>
+                  </div> -->
+                  </a>
+                </div>
+                <div class="rounded">
+                  <a class="cs-portfolio-card-scale text-decoration-none mt-3 mx-3" href="#">
+                    <div class="cs-portfolio-card-img">
+                      <img src="{{ url_for('static', filename="SOUNDCLAZ_IMAGES/326-juices-mockup.jpg") }}" alt="Card image"
+                        style="height:300px">
+                    </div>
+                    <!-- <div class="cs-portfolio-card-body">
+                    <h3 class="cs-portfolio-card-title">Way Finding Sign</h3>
+                    <span class="font-size-sm text-muted">Totem Signage</span>
+                  </div> -->
+                  </a>
+                </div>
+                <div class="rounded">
+                  <a class="cs-portfolio-card-scale text-decoration-none mt-3 mx-3" href="#">
+                    <div class="cs-portfolio-card-img">
+                      <img src="{{ url_for('static', filename="SOUNDCLAZ_IMAGES/2701533.jpg") }}" alt="Card image" style="height:300px">
+                    </div>
+                    <!-- <div class="cs-portfolio-card-body">
+                    <h3 class="cs-portfolio-card-title">Directions Mount</h3>
+                    <span class="font-size-sm text-muted">Way Finding Signages</span>
+                  </div> -->
+                  </a>
+                </div>
+                <div class="rounded">
+                  <a class="cs-portfolio-card-scale text-decoration-none mt-3 mx-3" href="#">
+                    <div class="cs-portfolio-card-img">
+                      <img src="{{ url_for('static', filename="SOUNDCLAZ_IMAGES/Cuboid_Box_Mockup.jpg") }}" alt="Card image"
+                        style="height:300px">
+                    </div>
+                    <!-- <div class="cs-portfolio-card-body">
+                    <h3 class="cs-portfolio-card-title">LED Signage</h3>
+                    <span class="font-size-sm text-muted">Branding</span>
+                  </div> -->
+                  </a>
+                </div>
+                <div class="rounded">
+                  <a class="cs-portfolio-card-scale text-decoration-none mt-3 mx-3" href="#">
+                    <div class="cs-portfolio-card-img">
+                      <img src="{{ url_for('static', filename="SOUNDCLAZ_IMAGES/popchilly.webp") }}" alt="Card image" style="height:300px">
+                    </div>
+                    <!-- <div class="cs-portfolio-card-body">
+                    <h3 class="cs-portfolio-card-title">Directions Mount</h3>
+                    <span class="font-size-sm text-muted">Way Finding Signages</span>
+                  </div> -->
+                  </a>
+                </div>
+                    <!-- <div class="cs-portfolio-card-body">
+                    <h3 class="cs-portfolio-card-title">Monument Signs</h3>
+                    <span class="font-size-sm text-muted">Advertisement</span>
+                  </div> -->
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+      </section>
+
+      <section class="">
+        <div class="container pt-2 pt-lg-0">
+          <h2 class="h1 mb-0 text-primary" style="font-weight: 500;">Brand Shoot</h2>
+          <div class="mb-lg-5 mb-4 d-flex justify-content-between">
+            <p class="mb-2">Pretty much as the name suggests, a personal <strong>branding shoot</strong> is a photo
+              shoot that captures the people behind a <strong>brand</strong>, their <strong>brand values</strong> and
+              some of the crafting processes. And
+              what's the point? Well, most <strong>brands</strong> focus on photographing their products and talking
+              about their services
+            </p>
+            <div class="tns-custom-controls cs-controls-inverse mb-md-n4" id="tns-portfolio-controls" tabindex="0">
+              <button type="button" data-controls="prev" tabindex="-1">
+                <i class="cxi-arrow-left"></i>
+              </button>
+              <button type="button" data-controls="next" tabindex="-1">
+                <i class="cxi-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="container px-0">
+
+          <!-- Carousel -->
+          <div class="cs-carousel mt-n2 mb-lg-5 mb-4">
+            <div class="cs-carousel-inner" data-carousel-options='{
+              "nav": false,
+              "controlsContainer": "#tns-portfolio-controls",
+              "responsive": {
+                "0": {
+                  "items": 1
+                },
+                "576": {
+                  "items": 2
+                },
+                "768": {
+                  "items": 3
+                }
+              }
+            }'>
+              <div class="rounded">
+                <a class="cs-portfolio-card-scale text-decoration-none mt-3 mx-3" href="#">
+                  <div class="cs-portfolio-card-img">
+                    <img src="{{ url_for('static', filename="SOUNDCLAZ_IMAGES/soundclaz-20200902-0002.jpg") }}" alt="Card image"
+                      style="height:400px">
+                  </div>
+                  <!-- <div class="cs-portfolio-card-body">
+                    <h3 class="cs-portfolio-card-title">LED Signages</h3>
+                    <span class="font-size-sm text-muted">Advertisement</span>
+                  </div> -->
+                </a>
+              </div>
+              <div class="rounded">
+                <a class="cs-portfolio-card-scale text-decoration-none mt-3 mx-3" href="#">
+                  <div class="cs-portfolio-card-img">
+                    <img src="{{ url_for('static', filename="SOUNDCLAZ_IMAGES/soundclaz-20200902-0005.jpg") }}" alt="Card image"
+                      style="height:400px">
+                  </div>
+                  <!-- <div class="cs-portfolio-card-body">
+                    <h3 class="cs-portfolio-card-title">LED Signages</h3>
+                    <span class="font-size-sm text-muted">Signages</span>
+                  </div> -->
+                </a>
+              </div>
+              <div class="rounded">
+                <a class="cs-portfolio-card-scale text-decoration-none mt-3 mx-3" href="#">
+                  <div class="cs-portfolio-card-img">
+                    <img src="{{ url_for('static', filename="SOUNDCLAZ_IMAGES/DSC_0894.jpg") }}" alt="Card image" style="height:400px">
+                  </div>
+                  <!-- <div class="cs-portfolio-card-body">
+                    <h3 class="cs-portfolio-card-title">Way Finding Sign</h3>
+                    <span class="font-size-sm text-muted">Totem Signage</span>
+                  </div> -->
+                </a>
+              </div>
+              <div class="rounded">
+                <a class="cs-portfolio-card-scale text-decoration-none mt-3 mx-3" href="#">
+                  <div class="cs-portfolio-card-img">
+                    <img src="{{ url_for('static', filename="SOUNDCLAZ_IMAGES/DSC_0011.JPG") }}" alt="Card image" style="height:400px">
+                  </div>
+                  <!-- <div class="cs-portfolio-card-body">
+                    <h3 class="cs-portfolio-card-title">Directions Mount</h3>
+                    <span class="font-size-sm text-muted">Way Finding Signages</span>
+                  </div> -->
+                </a>
+              </div>
+              <div class="rounded">
+                <a class="cs-portfolio-card-scale text-decoration-none mt-3 mx-3" href="#">
+                  <div class="cs-portfolio-card-img">
+                    <img src="{{ url_for('static', filename="SOUNDCLAZ_IMAGES/DSC_0066.jpg") }}" alt="Card image" style="height:400px">
+                  </div>
+                  <!-- <div class="cs-portfolio-card-body">
+                    <h3 class="cs-portfolio-card-title">LED Signage</h3>
+                    <span class="font-size-sm text-muted">Branding</span>
+                  </div> -->
+                </a>
+              </div>
+    
+
+
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+          <!-- VIDEO PRODUCTION --> 
+          <section class="pb-4 py-lg-6">
+            <div class="container pt-lg-0">
+              <h2 class="h1 mb-0 text-primary" style="font-weight:400;">Video production</h2>
+              <div class="mb-lg-5 mb-4 d-flex justify-content-between">
+                    <p class="mb-2">Advertising plays a big role in the increase in the total revenue of a company. A good or interesting advertisement lead to an increase in the sale of the products</p>
+                  </div>
+                </div>
+                <div class="container px-0">
+                  
+                  <!-- Project goal -->
+                  <section class="container pb-5 text-center" id="section-goal">
+                    <div
+                    class="jumbotron position-relative bg-size-cover bg-position-center bg-no-repeat text-center mb-0 py-md-6 py-5"
+                    style="background-image: url({{ url_for('static', filename="SOUNDCLAZ_IMAGES/soundclaz_video.webp") }});">
+                    <div class="bg-overlay rounded opacity-60"></div>
+                    <div class="bg-overlay-content my-5 py-5">
+                      <a class="cs-video-btn cs-video-btn-lg my-3" target="_blank" href="https://www.youtube.com/watch?v=FQuNA20Ennc" data-gallery-video></a>
+                    </div>
+                  </div>
+                </section>
+                
+                <div class="row">
+                  <div class="col col-sm-6">
+                    <a class="cs-portfolio-card-scale cs-portfolio-card-video" target="_blank"
+                    href="https://www.youtube.com/watch?v=fbLz8cB-TEg">
+                    <div class="cs-portfolio-card-img">
+                      <img
+                      src="{{ url_for('static', filename="SOUNDCLAZ_IMAGES/todo_app.webp") }}" alt="Card image">
+                      <span class="cs-video-btn"></span>
+                    </div>
+                    <div class="cs-portfolio-card-body">
+                      <h3 class="cs-portfolio-card-title">Application Promotion Video</h3>
+                      <span class="font-size-sm text-muted">Video Production</span>
+                    </div>
+                  </a>
+                </div>
+                
+                <div class="col col-sm-6">
+                  <a class="cs-portfolio-card-scale cs-portfolio-card-video" target="_blank"
+                  href="https://www.youtube.com/watch?v=YeHRpQ5Bzuc">
+                  <div class="cs-portfolio-card-img">
+                    <img
+                    src="{{ url_for('static', filename="SOUNDCLAZ_IMAGES/popchilly.webp") }}"
+                    alt="Card image">
+                    <span class="cs-video-btn"></span>
+                  </div>
+                  <div class="cs-portfolio-card-body">
+                    <h3 class="cs-portfolio-card-title">BEST PRODUCT ADVERT</h3>
+                    <span class="font-size-sm text-muted">Video Production</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+    <!-- Project goal -->
+    <section class="container mb-lg-6 mb-5">
+      <h2 class="h6 mb-3 text-uppercase">Project goal</h2>
+      <div class="row mb-lg-6 mb-sm-5 mb-4">
+        <div class="col-md-8">
+          <p class="mb-3 lead font-weight-600">Creating an <strong>Identity</strong> for your brand</p>
+          <p class="mb-md-0 text-muted">Whenever we set out to design a logo, our no. 1 question is this, 'How can we
+            put together a profile of our client, their background, mission and philosophy in a single symbol?' Our aim
+            is to create an emblem that stands out rather than blend in. We want it to live beyond the trends by being
+            true to the brand identity.</p>
+        </div>
+        <div class="col-lg-3 col-md-4 ml-auto">
+          <div class="row justify-content-between">
+            <div class="col-xl-5 col-md-6 col-sm-3 col-6 mb-4 pb-1">
+              <h3 class="h6 mb-2">Strategy</h3>
+              <ul class="list-unstyled font-size-sm">
+                <li>Brand Strategy</li>
+                <li>UX Strategy</li>
+              </ul>
+            </div>
+            <div class="col-xl-5 col-md-6 col-sm-3 col-6 mb-4 pb-1">
+              <h3 class="h6 mb-2">Category</h3>
+              <ul class="list-unstyled font-size-sm">
+                <li>Branding</li>
+                <li>Mobile app</li>
+              </ul>
+            </div>
+            <div class="col-xl-5 col-md-6 col-sm-3 col-6 mb-4 pb-1">
+              <h3 class="h6 mb-2">Design</h3>
+              <ul class="list-unstyled font-size-sm">
+                <li>UI/UX Design</li>
+                <li>Art Direction</li>
+              </ul>
+            </div>
+            <!-- <div class="col-xl-5 col-md-6 col-sm-3 col-6 mb-4 pb-1">
+              <h3 class="h6 mb-2 pb-1">Latest Client</h3>
+              <img src="../../assets/img/creative-agency/logo/envato.svg" alt="Envato">
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <img class="rounded" src="{{ url_for('static', filename="SOUNDCLAZ_IMAGES/361-salad-takeaway-mockup.jpg") }}" alt="Project image"
+        style="height: 370px; width: 600px;">
+      <img class="rounded" src="{{ url_for('static', filename="SOUNDCLAZ_IMAGES/2615246.jpg") }}" alt="Project image"
+        style="height: 370px; width: 600px;">
+
+
+    </section>
+
+ <!-- LOGO DESIGN-->
+  <!-- Latest projects -->
+  <section class="py-lg-6 pt-5 pb-4">
+    <div class="container pt-2 pt-lg-0">
+      <div class="d-flex justify-content-between mb-lg-5 mb-4">
+        <h2 class="h1 mb-0 text-primary" style="font-weight: 500;">Logo Design</h2>
+      </div>
+      <h3 class="h6 mb-2 text-uppercase">Enjoy our latest projects</h3>
+      <div class="mb-lg-5 mb-4 d-flex justify-content-between">
+        <h2 class="h3 mb-0">Selected works</h2>
+        <div class="tns-custom-controls cs-controls-inverse mb-md-n4" id="tns-portfolio-controls4" tabindex="0">
+          <button type="button" data-controls="prev" tabindex="-1">
+            <i class="cxi-arrow-left"></i>
+          </button>
+          <button type="button" data-controls="next" tabindex="-1">
+            <i class="cxi-arrow-right"></i>
+          </button>
+              </div>
+            </div>
+          </div>
+          <div class="container px-0">
+            
+            <!-- Carousel -->
+            <div class="cs-carousel mt-n2 mb-lg-5 mb-4">
+              <div class="cs-carousel-inner" data-carousel-options='{
+                "nav": false,
+                "controlsContainer": "#tns-portfolio-controls4",
+                "responsive": {
+                  "0": {
+                    "items": 1
+                  },
+                  "576": {
+                    "items": 2
+                  },
+                  "768": {
+                    "items": 3
+                  }
+                }
+              }'>
+              <div class="rounded">
+                <a class="cs-portfolio-card-scale text-decoration-none mt-3 mx-3" href="#">
+                  <div class="cs-portfolio-card-img">
+                    <img src="{{ url_for('static', filename="SOUNDCLAZ_IMAGES/04.jpg") }}" alt="Card image" style="height:300px">
+                  </div>
+                  <div class="cs-portfolio-card-body">
+                    <h3 class="cs-portfolio-card-title">Company Logo Design</h3>
+                    <span class="font-size-sm text-muted">Logo Design</span>
+                  </div>
+                </a>
+              </div>
+              <div class="rounded">
+                <a class="cs-portfolio-card-scale text-decoration-none mt-3 mx-3" href="#">
+                  <div class="cs-portfolio-card-img">
+                    <img src="{{ url_for('static', filename="SOUNDCLAZ_IMAGES/Afrotern.jpg") }}" alt="Card image" style="height:300px">
+                  </div>
+                  <div class="cs-portfolio-card-body">
+                    <h3 class="cs-portfolio-card-title">Afrotern Logo Design</h3>
+                    <span class="font-size-sm text-muted">Logo Design</span>
+                  </div>
+                </a>
+              </div>
+              <div class="rounded">
+                <a class="cs-portfolio-card-scale text-decoration-none mt-3 mx-3" href="#">
+                  <div class="cs-portfolio-card-img">
+                    <img src="{{ url_for('static', filename="SOUNDCLAZ_IMAGES/Omon.jpg") }}" alt="Card image" style="height:300px">
+                  </div>
+                  <div class="cs-portfolio-card-body">
+                    <h3 class="cs-portfolio-card-title">Company Mockup Logo</h3>
+                    <span class="font-size-sm text-muted">Logo Design</span>
+                  </div>
+                </a>
+              </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+    <!-- Challenge -->
+    <section class="container mb-lg-6 mb-5">
+      <div class="row mb-lg-6 mb-5">
+        <div class="col-lg-8 col-sm-10 mx-auto">
+          <h2 class="h6 mb-3 text-uppercase">Challenge</h2>
+          <p class="mb-0">We often encounter challenges during our process. These include various scenarios such as
+            clients changing their minds, or a well meaning member of the team voicing out reasonable concerns. These
+            occurrences may be unexpected, but we're rarely unprepared for such events</p>
+        </div>
+      </div>
+    </section>
+
+
+  </main><!-- / Main content: .cs-page-wrapper -->
+
+
+ <!-- Footer -->
+  <footer class="cs-footer pt-3 bg-dark">
+    <div class="container py-lg-5 py-4">
+      <div class="row">
+        <div class="col-lg-2 col-md-3 col-12 order-md-1 order-2 mb-md-0 mb-4">
+          <h3 class="h6 mb-3 text-uppercase text-light">Want to hire us?</h3>
+          <ul class="nav nav-light flex-column">
+            <li class="nav-item mb-2">
+              <a href="tel:+2347035616553" class="nav-link p-0 font-weight-normal">
+                <span class="text-light">Call: </span>
+                +2347035616553
+              </a>
+            </li>
+            <li class="nav-item mb-2">
+              <a href="mailto:hello@example.com" class="nav-link p-0 font-weight-normal">
+                <span class="text-light">Email: </span>
+                support@soundclaz.com
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-3 col-12 order-md-2 order-1 offset-lg-1 mb-md-0 mb-4">
+          <h3 class="h6 mb-3 text-uppercase text-light">Quick links</h3>
+          <ul class="nav nav-light flex-md-column flex-sm-row flex-column">
+            <li class="nav-item mb-2">
+              <a href="{{ url_for('main_site.index') }}" class="nav-link mr-md-0 mr-sm-4 p-0 font-weight-normal">Homepage</a>
+            </li>
+            <li class="nav-item mb-2">
+              <a href="{{ url_for('main_site.portfolio') }}" class="nav-link mr-md-0 mr-sm-4 p-0 font-weight-normal">Portfolio</a>
+            </li>
+            <li class="nav-item mb-2">
+              <a href="{{ url_for('main_site.about') }}" class="nav-link mr-md-0 mr-sm-4 p-0 font-weight-normal">About us</a>
+            </li>
+            <li class="nav-item mb-2">
+              <a href="{{ url_for('blog.home') }}" class="nav-link mr-md-0 mr-sm-4 p-0 font-weight-normal">Blog</a>
+            </li>
+            <li class="nav-item mb-2">
+              <a href="{{ url_for('main_site.contact') }}" class="nav-link mr-md-0 mr-sm-4 p-0 font-weight-normal">Contacts</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3 col-sm-6 order-md-3 order-sm-4 order-3 offset-lg-1 mb-md-0 mb-4">
+          <div class="col-12">
+            <h3 class="h6 mb-3 text-uppercase text-light">Follow us</h3>
+            <a href="https://www.facebook.com/Soundclaz-103697141997508"
+              class="social-btn sb-solid sb-round sb-light mr-2 mb-2 mt-md-0 mt-sm-1">
+              <i class="cxi-facebook"></i>
+            </a>
+            <a href="http://instagram.soundclaz.com/"
+              class="social-btn sb-solid sb-round sb-light mr-2 mb-2 mt-md-0 mt-sm-1">
+              <i class="cxi-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/soundclaz/"
+              class="social-btn sb-solid sb-round sb-light mr-2 mb-2 mt-md-0 mt-sm-1">
+              <i class="cxi-linkedin"></i>
+            </a>
+            <a href="http://pinterest.soundclaz.com/" class="social-btn sb-solid sb-round sb-light mb-2 mt-md-0 mt-sm-1">
+              <i class="cxi-pinterest"></i>
+            </a>
+            <a href="http://youtube.soundclaz.com/" class="social-btn sb-solid sb-round sb-light mb-2 mt-md-0 mt-sm-1">
+              <i class="cxi-youtube"></i>
+            </a>
+          </div>
+          <div class="col-12">
+            <a href="https://www.sortlist.com/agency/soundclaz">
+              <img class="d-block mt-md-3 mt-2" src="{{ url_for('static', filename="/img/creative-agency/logo/sortlist.svg") }}" alt="Brand logo">
+            </a>
+            <a href="https://clutch.co/profile/soundclaz">
+              <img class="d-block mt-md-3 mt-2" src="{{ url_for('static', filename="/img/creative-agency/logo/clutch.svg") }}" alt="Brand logo">
+            </a>
+
+          </div>
+        </div>
+
+
+        <div class="col-md-3 col-sm-6 order-md-4 order-sm-3 order-4 mb-md-0 mb-4">
+          <h3 class="h6 mb-3 text-uppercase text-light">Subscribe</h3>
+          <form method="post" action="{{ url_for('main_site.subscribe') }}">
+            <div class="input-group-overlay input-group-light form-group mb-2 pb-1">
+                <input class="form-control appended-form-control" type="text" name="subscribe-email" placeholder="Email address*">
+              <div class="input-group-append-overlay">
+                <span class="input-group-text">
+                  <button class="btn btn-link bt-sm px-0" type="submit">
+                    <i class="cxi-arrow-right lead mt-n1"></i>
+                  </button>
+                </span>
+              </div>
+            </div>
+            <small class="form-text text-light">*Subscribe to our newsletter to receive early discount offers, updates
+              and new products info.</small>
+          </form>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between mt-2 pt-1">
+        <div class="d-flex align-items-end">
+          <span class="d-sm-inline-block d-none text-light font-size-sm mr-3">Back to top</span>
+          <a class="btn-scroll-top position-static rounded-circle" href="#top" data-scroll>
+            <i class="btn-scroll-top-icon cxi-angle-up"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Vendor scripts: js libraries and plugins-->
+  <script src="{{ url_for('static', filename="vendor/jquery/dist/jquery.slim.min.js") }}"></script>
+  <script src="{{ url_for('static', filename="vendor/bootstrap/dist/js/bootstrap.bundle.min.js") }}"></script>
+  <script src="{{ url_for('static', filename="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js") }}"></script>
+  <script src="{{ url_for('static', filename="vendor/jarallax/dist/jarallax.min.js") }}"></script>
+  <script src="{{ url_for('static', filename="vendor/lightgallery.js/dist/js/lightgallery.min.js") }}"></script>
+  <script src="{{ url_for('static', filename="vendor/lg-video.js/dist/lg-video.min.js") }}"></script>
+  <script src="{{ url_for('static', filename="vendor/parallax-js/dist/parallax.min.js") }}"></script>
+  <script src="{{ url_for('static', filename="vendor/tiny-slider/dist/min/tiny-slider.js") }}"></script>
+
+  <!-- Main theme script-->
+  <script src="{{ url_for('static', filename="js/theme.min.js") }}"></script>
+  <script src="{{ url_for('static', filename="js/app.js") }}"></script>
+<!-- Tawk.to -->
+  <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6081f3845eb20e09cf35b520/1f3tpufhg';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+</body>
+
+</html>

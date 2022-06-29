@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+<head>
+  <meta charset="utf-8">
+  <title>Soundclaz | Branding Agency - About Us</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+  <!-- SEO Meta Tags-->
+  <meta name="description" content="Soundclaz - Branding agaency">
+  <meta name="keywords"
+    content="bootstrap, business, branding agency, portfolio, services, branding, web design, logo design, animation">
+  <meta name="author" content="Soundclaz">
+
+  <!-- Viewport-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon and Touch Icons-->
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename="img/whiteicon.png") }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename="img/whiteicon.png") }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename="img/whiteicon.png") }}">
+  <link rel="manifest" href="{{ url_for('static', filename="img/site.webmanifest") }}">
+  <link rel="mask-icon" color="#5bbad5" href="{{ url_for('static', filename="img/safari-pinned-tab.svg") }}">
+  <meta name="msapplication-TileColor" content="#766df4">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Vendor Styles-->
+  <link rel="stylesheet" media="screen" href="{{ url_for('static', filename="vendor/lightgallery.js/dist/css/lightgallery.min.css") }}" />
+  <link rel="stylesheet" media="screen" href="{{ url_for('static', filename="vendor/tiny-slider/dist/tiny-slider.css") }}" />
+
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+
+  <!-- Main Theme Styles + Bootstrap-->
+  <link rel="stylesheet" media="screen" href="{{ url_for('static', filename="css/demo/creative-agency/theme.min.css")}}">
+
+  <!-- Page loading styles-->
+  <style>
+    .cs-page-loading {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-transition: all .4s .2s ease-in-out;
+      transition: all .4s .2s ease-in-out;
+      background-color: #fff;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 9999;
+    }
+
+    .cs-page-loading.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .cs-page-loading-inner {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+      -webkit-transition: opacity .2s ease-in-out;
+      transition: opacity .2s ease-in-out;
+      opacity: 0;
+    }
+
+    .cs-page-loading.active>.cs-page-loading-inner {
+      opacity: 1;
+    }
+
+    .cs-page-loading-inner>span {
+      display: block;
+      font-size: 1rem;
+      font-weight: normal;
+      color: #787a80;
+    }
+
+    .cs-page-spinner {
+      display: inline-block;
+      width: 2.75rem;
+      height: 2.75rem;
+      margin-bottom: .75rem;
+      vertical-align: text-bottom;
+      background-color: #cfcfd1;
+      border-radius: 50%;
+      opacity: 0;
+      -webkit-animation: spinner .75s linear infinite;
+      animation: spinner .75s linear infinite;
+    }
+
+    @-webkit-keyframes spinner {
+      0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+      }
+
+      50% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+      }
+    }
+
+    @keyframes spinner {
+      0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+      }
+
+      50% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+      }
+    }
+  </style>
+
+  <!-- Page loading scripts-->
+  <script>
+    (function () {
+      window.onload = function () {
+        var preloader = document.querySelector('.cs-page-loading');
+        preloader.classList.remove('active');
+        setTimeout(function () {
+          preloader.remove();
+        }, 2000);
+      };
+    })();
+  </script>
+</head>
+
+<!-- Body-->
+
+<body>
+
+  <!-- Page loading spinner
+  <div class="cs-page-loading active">
+    <div class="cs-page-loading-inner">
+      <div class="cs-page-spinner"></div><span>Loading...</span>
+    </div>
+  </div> -->
+
+    <!-- Main content-->
+    <!-- Wraps everything except footer to push footer to the bottom of the page if there is little content -->
+    <main class="cs-page-wrapper position-relative">
+
+
+      <!-- Navbar -->
+      <!-- Remove .navbar-sticky class to detach .navbar from page scroll -->
+      <header class="cs-header navbar navbar-expand-md navbar-light navbar-sticky">
+        <div class="container px-0 px-xl-3">
+          <a class="navbar-brand order-md-1 mr-md-5 mr-0 pr-lg-2" href="{{ url_for('main_site.index') }}">
+            <img src="{{ url_for('static', filename="img/creative-agency/logo-dark.svg") }}" alt="Createx Logo" width="130">
+          </a>
+          <div class="d-flex align-items-center order-md-3">
+            <a class="btn btn-primary btn-pill d-sm-inline-block d-none ml-3" href="{{ url_for("main_site.contact") }}">Contact us</a>
+            <button class="navbar-toggler ml-1 mr-n3" type="button" data-toggle="collapse" data-target="#navbarCollapse1" aria-expanded="false">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+          <nav class="collapse navbar-collapse order-md-2" id="navbarCollapse1">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('main_site.index') }}">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Portfolio</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="{{ url_for('main_site.portfolio') }}">Portfolio</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('main_site.guerrilla') }}">Advertisement Services</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('main_site.product') }}">Product Innovation</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('main_site.digital') }}">Digital Services</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="{{ url_for('main_site.about') }}">About us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('blog.home') }}">Blog</a>
+              </li>
+              <li class="nav-item d-sm-none d-block">
+                <a class="nav-link" href="{{ url_for('main_site.contact') }}">Contact us</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+
+      <!-- Story -->
+      <section class="container mt-5 mb-2 mb-md-5 mb-lg-6 pt-md-4">
+        <div class="row position-relative">
+          <div class="col-md-7 col-sm-8">
+            <h3 class="h6 mb-2 text-uppercase">About us</h3>
+            <h1 class="mb-4 mb-sm-6 px-0 col-sm-7">We are here to conceptualize your idea</h1>
+            <div class="cs-gallery d-sm-none d-block mb-n2">
+              <a class="cs-gallery-item video-item" href="https://vimeo.com/429640367" data-sub-html="<h6 class='text-light'>Gallery video caption</h6>">
+                <img src="{{ url_for('static', filename="img/creative-agency/team/about.jpg") }}" alt="About">
+              </a>
+            </div>
+            <div class="py-5 px-sm-4 px-3 bg-secondary">
+              <div class="col-xl-7 col-lg-8 p-sm-3 px-0">
+                <h3 class="h6 mb-2 text-uppercase">est 2020</h3>
+                <h2 class="h1 mb-sm-5 mb-4">Our story</h2>
+                <p class="text-muted">SoundClaz was gotten from the combination of two words which are “sound” and “classic”. </p>
+                <p class="text-muted">We gave our own meaning to this name that is, to help start-ups or existing company make a pleasant and interesting presentation of their products through our services. We are a branding and advertisement Agency.</p>
+                <div class="collapse" id="story-collapse">
+{#                  <p class="text-muted">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>#}
+{#                  <p class="text-muted">Iusto voluptates reprehenderit minima veniam ab! Accusantium est nihil ut recusandae illum, quaerat quod rem veritatis repellendus earum reiciendis consequatur minus ratione dolorum libero.</p>#}
+                </div>
+              </div>
+              <div class="d-flex align-items-center justify-content-between px-sm-3">
+                <div>
+                  <a class="cs-collapse-toggler font-size-sm font-weight-bold text-body text-decoration-none text-nowrap" href="#story-collapse" data-collapsed="Read more" data-expanded="Read less" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="story-collapse">
+                    <i class="cs-collapse-toggler-indicator cxi-arrow-down h4 mb-0 text-body"></i>
+                  </a>
+                </div>
+                <div class="d-sm-block d-none mr-xl-n2">
+                  <a href="https://www.youtube.com/watch?v=4gAtw4qSF2U" class="cs-video-btn mr-sm-3 mr-2" data-gallery-video data-sub-html="<h6 class='font-size-sm text-light'>Agency Showreel</h6>" data-gallery-video></a>
+                  <span class="font-size-sm font-weight-bold text-dark text-nowrap align-middle">Watch Video</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-7 d-sm-block d-none position-absolute" style="top: 0; right: 0;">
+            <img class="mt-4 rounded" src="{{ url_for('static', filename="img/IMG_9582.jpg") }}" alt="About">
+          </div>
+        </div>
+
+        <div class="row mt-3 mt-sm-4 mt-md-0 pt-md-6 py-5" id="tabs">
+          <div class="col-lg-10 ml-auto">
+            <div class="row">
+              <div class="col-sm-4">
+
+                <!-- Vertical tab navs -->
+                <div class="mb-sm-0 mb-4 pb-sm-0 pb-2" data-simplebar data-simplebar-auto-hide="false">
+                  <ul class="nav flex-sm-column flex-nowrap" id="storyTab" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link h1 mb-0 font-weight-black line-height-1 active" href="#vision" id="vision-tab" data-toggle="tab" role="tab" aria-controls="vision" aria-selected="true">
+                        Vision
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link h1 mb-0 font-weight-black line-height-1" href="#mission" id="mission-tab" data-toggle="tab" role="tab" aria-controls="mission" aria-selected="false">
+                        Mission
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link h1 mb-0 font-weight-black line-height-1" href="#values" id="values-tab" data-toggle="tab" role="tab" aria-controls="values" aria-selected="false">
+                        Values
+                      </a>
+                    </li>
+                  </ul>  
+                </div>
+              </div>
+              <div class="col-sm-8">
+
+                <!-- Tabs content -->
+                <div class="tab-content mt-3">
+                  <div class="tab-pane fade show active" id="vision" role="tabpanel" aria-labelledby="vision-tab">
+                    <p class="lead">To be a leading branding and advertisement agency globally that has created remarkable designs meeting customer taste and beating deadlines.</p>
+                    <p class="lead"> To deliver result-oriented brand marketing programs and public relations campaigns that enhance our client’s awareness, improve their sales and foster their growth.</p>
+                  </div>
+                  <div class="tab-pane fade" id="mission" role="tabpanel" aria-labelledby="mission-tab">
+                    <p class="lead">To create, design and brand new and existing companies by turning the confusions into manifestations that gives a clearer understanding of products or brands with optimum promotion services.</p>
+                  </div>
+                  <div class="tab-pane fade" id="values" role="tabpanel" aria-labelledby="values-tab">
+                    <p class="lead">We are the masterpiece and we ensure continued success and take pride in what we do.</p>
+                    <p class="lead">Here for you, here to serve you.<br>
+                     .  We get to know your business better<br>
+                     .  We are Responsible and Time oriented<br>
+                     .  We are passionate about what we do.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Team -->
+      <section class="container mb-sm-4">
+        <h3 class="h6 mb-2 text-uppercase">We are</h3>
+        <h2 class="h2 mb-5 pb-sm-2 col-lg-6 col-md-8 col-sm-10 px-0">Skilled and proffessionals working together to deliver top notch services.</h2>
+        <div class="row">
+
+          <!-- Item -->
+          <div class="col-lg-3 col-md-4 col-sm-6 mb-4 mb-lg-5">
+            <div class="card cs-team mx-auto" style="max-width: 22rem;">
+              <div class="card-img">
+                <img src="{{ url_for('static', filename="img/team/favour.jpg") }}" alt="Omonjade Godsfavor"/>
+                <div class="card-floating-links text-right">
+                  <a class="social-btn sb-solid sb-round sb-light mr-2" href="https://www.instagram.com/jaidson_/">
+                    <i class="cxi-instagram"></i>
+                  </a>
+                  <a class="social-btn sb-solid sb-round sb-light" href="https://www.linkedin.com/in/omonjade-godsfavour-a4ab171a7/">
+                    <i class="cxi-linkedin"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="card-body py-3 text-center">
+                <h5 class="card-title mb-1">Omonjade Godsfavor</h5>
+                <p class="card-text text-muted">CEO/Founder</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item -->
+          <div class="col-lg-3 col-md-4 col-sm-6 mb-4 mb-lg-5">
+            <div class="card cs-team mx-auto" style="max-width: 22rem;">
+              <div class="card-img">
+                <img src="{{ url_for('static', filename="img/team/john.JPG") }}" alt="John Udoumoh"/>
+                <div class="card-floating-links text-right">
+                  <a class="social-btn sb-solid sb-round sb-light mr-2" href="https://www.instagram.com/iam.johndavid/">
+                    <i class="cxi-instagram"></i>
+                  </a>
+                  <a class="social-btn sb-solid sb-round sb-light" href="https://www.linkedin.com/in/john-udoumoh-538550162/">
+                    <i class="cxi-linkedin"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="card-body py-3 text-center">
+                <h5 class="card-title mb-1">John David Udoumoh</h5>
+                <p class="card-text text-muted">Tech lead</p>
+              </div>
+            </div>
+          </div>
+
+                    
+          <!-- Item -->
+          <div class="col-lg-3 col-md-4 col-sm-6 mb-4 mb-lg-5">
+            <div class="card cs-team mx-auto" style="max-width: 22rem;">
+              <div class="card-img">
+                <img src="{{ url_for('static', filename="img/team/yusuf.jpg") }}" alt="Yusuf"/>
+                <div class="card-floating-links text-right">
+                  <a class="social-btn sb-solid sb-round sb-light mr-2" href="#">
+                    <i class="cxi-instagram"></i>
+                  </a>
+                  <a class="social-btn sb-solid sb-round sb-light" href="https://www.linkedin.com/in/mohammed-adebayo-yusuf-12758a7b/">
+                    <i class="cxi-linkedin"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="card-body py-3 text-center">
+                <h5 class="card-title mb-1">Yusuf Adebayo Mohammed</h5>
+                <p class="card-text text-muted">Technical Project Director</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Item -->
+          <div class="col-lg-3 col-md-4 col-sm-6 mb-4 mb-lg-5">
+            <div class="card cs-team mx-auto" style="max-width: 22rem;">
+              <div class="card-img">
+                <img src="{{ url_for('static', filename="img/team/kolade.jpg") }}" alt="Kolade"/>
+                <div class="card-floating-links text-right">
+                  <a class="social-btn sb-solid sb-round sb-light mr-2" href="https://www.instagram.com/kolad3_/">
+                    <i class="cxi-instagram"></i>
+                  </a>
+                  <a class="social-btn sb-solid sb-round sb-light" href="https://www.linkedin.com/in/kolade-olaleye-b2ab92181/">
+                    <i class="cxi-linkedin"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="card-body py-3 text-center">
+                <h5 class="card-title mb-1">Kolade Olayele</h5>
+                <p class="card-text text-muted">Project Manager</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item -->
+          <div class="col-lg-3 col-md-4 col-sm-6 mb-4 mb-lg-5">
+            <div class="card cs-team mx-auto" style="max-width: 22rem;">
+              <div class="card-img">
+                <img src="{{ url_for('static', filename="img/team/maro.jpg") }}" alt="Maro Odogun"/>
+                <div class="card-floating-links text-right">
+                  <a class="social-btn sb-solid sb-round sb-light mr-2" href="#">
+                    <i class="cxi-instagram"></i>
+                  </a>
+                  <a class="social-btn sb-solid sb-round sb-light" href="https://www.linkedin.com/in/odogun-maro-b5b710191/">
+                    <i class="cxi-linkedin"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="card-body py-3 text-center">
+                <h5 class="card-title mb-1">Maro Odogun</h5>
+                <p class="card-text text-muted">Content Director</p>
+              </div>
+            </div>
+          </div>
+
+          
+          <!-- Item -->
+          <div class="col-lg-3 col-md-4 col-sm-6 mb-4 mb-lg-5">
+            <div class="card cs-team mx-auto" style="max-width: 22rem;">
+              <div class="card-img">
+                <img src="{{ url_for('static', filename="img/team/ferranmi.jpg") }}" alt="feranmi"/>
+                <div class="card-floating-links text-right">
+                  <a class="social-btn sb-solid sb-round sb-light mr-2" href="https://www.instagram.com/f.e.r.a.n.m.i/">
+                    <i class="cxi-instagram"></i>
+                  </a>
+                  <a class="social-btn sb-solid sb-round sb-light" href="https://www.linkedin.com/in/feranmi-aransiola-1b13841b6/">
+                    <i class="cxi-linkedin"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="card-body py-3 text-center">
+                <h5 class="card-title mb-1">Aransiola Feranmi</h5>
+                <p class="card-text text-muted">Head Brand identity designer</p>
+              </div>
+            </div>
+          </div>
+          
+          
+           <!-- Item -->
+           <div class="col-lg-3 col-md-4 col-sm-6 mb-4 mb-lg-5">
+             <div class="card cs-team mx-auto" style="max-width: 22rem;">
+              <div class="card-img">
+                <img src="{{ url_for('static', filename="img/team/yaya.jpg") }}" alt="yaya"/>
+                <div class="card-floating-links text-right">
+                  <a class="social-btn sb-solid sb-round sb-light mr-2" href="https://www.instagram.com/yaya.thecreator/">
+                    <i class="cxi-instagram"></i>
+                  </a>
+                  <a class="social-btn sb-solid sb-round sb-light" href="#">
+                    <i class="cxi-linkedin"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="card-body py-3 text-center">
+                <h5 class="card-title mb-1">Yaya Excellence</h5>
+                <p class="card-text text-muted">Photography director</p>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Item -->
+           <div class="col-lg-3 col-md-4 col-sm-6 mb-4 mb-lg-5">
+             <div class="card cs-team mx-auto" style="max-width: 22rem;">
+              <div class="card-img">
+                <img src="{{ url_for('static', filename="img/team/Timbyen.jpg") }}" alt="Timbyen"/>
+                <div class="card-floating-links text-right">
+                  <a class="social-btn sb-solid sb-round sb-light mr-2" href="#">
+                    <i class="cxi-facebook"></i>
+                  </a>
+                  <a class="social-btn sb-solid sb-round sb-light mr-2" href="#">
+                    <i class="cxi-instagram"></i>
+                  </a>
+                  <a class="social-btn sb-solid sb-round sb-light" href="#">
+                    <i class="cxi-linkedin"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="card-body py-3 text-center">
+                <h5 class="card-title mb-1">Timbyen Ponyah</h5>
+                <p class="card-text text-muted">Public Relations Officer</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item -->
+          <div class="col-lg-3 col-md-4 col-sm-6 mb-4 mb-lg-5">
+            <div class="card cs-team mx-auto" style="max-width: 22rem;">
+              <div class="card-img">
+                <img src="{{ url_for('static', filename="img/team/joseph.jpg") }}" alt="John Joseph Ali"/>
+                <div class="card-floating-links text-right">
+                  <a class="social-btn sb-solid sb-round sb-light mr-2" href="https://www.instagram.com/iam.josephjohn/">
+                    <i class="cxi-instagram"></i>
+                  </a>
+                  <a class="social-btn sb-solid sb-round sb-light" href="https://www.linkedin.com/in/josephjohn-ali/">
+                    <i class="cxi-linkedin"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="card-body py-3 text-center">
+                <h5 class="card-title mb-1">John Joseph Ali</h5>
+                <p class="card-text text-muted">Backend Developer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main><!-- / Main content: .cs-page-wrapper -->
+
+
+ <!-- Footer -->
+  <footer class="cs-footer pt-3 bg-dark">
+    <div class="container py-lg-5 py-4">
+      <div class="row">
+        <div class="col-lg-2 col-md-3 col-12 order-md-1 order-2 mb-md-0 mb-4">
+          <h3 class="h6 mb-3 text-uppercase text-light">Want to hire us?</h3>
+          <ul class="nav nav-light flex-column">
+            <li class="nav-item mb-2">
+              <a href="tel:+2347035616553" class="nav-link p-0 font-weight-normal">
+                <span class="text-light">Call: </span>
+                +2347035616553
+              </a>
+            </li>
+            <li class="nav-item mb-2">
+              <a href="mailto:hello@example.com" class="nav-link p-0 font-weight-normal">
+                <span class="text-light">Email: </span>
+                support@soundclaz.com
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-3 col-12 order-md-2 order-1 offset-lg-1 mb-md-0 mb-4">
+          <h3 class="h6 mb-3 text-uppercase text-light">Quick links</h3>
+          <ul class="nav nav-light flex-md-column flex-sm-row flex-column">
+            <li class="nav-item mb-2">
+              <a href="{{ url_for('main_site.index') }}" class="nav-link mr-md-0 mr-sm-4 p-0 font-weight-normal">Homepage</a>
+            </li>
+            <li class="nav-item mb-2">
+              <a href="{{ url_for('main_site.portfolio') }}" class="nav-link mr-md-0 mr-sm-4 p-0 font-weight-normal">Portfolio</a>
+            </li>
+            <li class="nav-item mb-2">
+              <a href="{{ url_for('main_site.about') }}" class="nav-link mr-md-0 mr-sm-4 p-0 font-weight-normal">About us</a>
+            </li>
+            <li class="nav-item mb-2">
+              <a href="{{ url_for('blog.home') }}" class="nav-link mr-md-0 mr-sm-4 p-0 font-weight-normal">Blog</a>
+            </li>
+            <li class="nav-item mb-2">
+              <a href="{{ url_for('main_site.contact') }}" class="nav-link mr-md-0 mr-sm-4 p-0 font-weight-normal">Contacts</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3 col-sm-6 order-md-3 order-sm-4 order-3 offset-lg-1 mb-md-0 mb-4">
+          <div class="col-12">
+            <h3 class="h6 mb-3 text-uppercase text-light">Follow us</h3>
+            <a href="https://www.facebook.com/Soundclaz-103697141997508"
+              class="social-btn sb-solid sb-round sb-light mr-2 mb-2 mt-md-0 mt-sm-1">
+              <i class="cxi-facebook"></i>
+            </a>
+            <a href="http://instagram.soundclaz.com/"
+              class="social-btn sb-solid sb-round sb-light mr-2 mb-2 mt-md-0 mt-sm-1">
+              <i class="cxi-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/soundclaz/"
+              class="social-btn sb-solid sb-round sb-light mr-2 mb-2 mt-md-0 mt-sm-1">
+              <i class="cxi-linkedin"></i>
+            </a>
+            <a href="http://pinterest.soundclaz.com/" class="social-btn sb-solid sb-round sb-light mb-2 mt-md-0 mt-sm-1">
+              <i class="cxi-pinterest"></i>
+            </a>
+            <a href="http://youtube.soundclaz.com/" class="social-btn sb-solid sb-round sb-light mb-2 mt-md-0 mt-sm-1">
+              <i class="cxi-youtube"></i>
+            </a>
+          </div>
+          <div class="col-12">
+            <a href="https://www.sortlist.com/agency/soundclaz">
+              <img class="d-block mt-md-3 mt-2" src="{{ url_for('static', filename="/img/creative-agency/logo/sortlist.svg") }}" alt="Brand logo">
+            </a>
+            <a href="https://clutch.co/profile/soundclaz">
+              <img class="d-block mt-md-3 mt-2" src="{{ url_for('static', filename="/img/creative-agency/logo/clutch.svg") }}" alt="Brand logo">
+            </a>
+
+          </div>
+        </div>
+
+
+        <div class="col-md-3 col-sm-6 order-md-4 order-sm-3 order-4 mb-md-0 mb-4">
+          <h3 class="h6 mb-3 text-uppercase text-light">Subscribe</h3>
+          <form method="post" action="{{ url_for('main_site.subscribe') }}">
+            <div class="input-group-overlay input-group-light form-group mb-2 pb-1">
+                <input class="form-control appended-form-control" type="text" name="subscribe-email" placeholder="Email address*">
+              <div class="input-group-append-overlay">
+                <span class="input-group-text">
+                  <button class="btn btn-link bt-sm px-0" type="submit">
+                    <i class="cxi-arrow-right lead mt-n1"></i>
+                  </button>
+                </span>
+              </div>
+            </div>
+            <small class="form-text text-light">*Subscribe to our newsletter to receive early discount offers, updates
+              and new products info.</small>
+          </form>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between mt-2 pt-1">
+        <div class="d-flex align-items-end">
+          <span class="d-sm-inline-block d-none text-light font-size-sm mr-3">Back to top</span>
+          <a class="btn-scroll-top position-static rounded-circle" href="#top" data-scroll>
+            <i class="btn-scroll-top-icon cxi-angle-up"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Vendor scripts: js libraries and plugins-->
+  <script src="{{ url_for('static', filename="vendor/jquery/dist/jquery.slim.min.js") }}"></script>
+  <script src="{{ url_for('static', filename="vendor/bootstrap/dist/js/bootstrap.bundle.min.js") }}"></script>
+  <script src="{{ url_for('static', filename="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js") }}"></script>
+  <script src="{{ url_for('static', filename="vendor/jarallax/dist/jarallax.min.js") }}"></script>
+  <script src="{{ url_for('static', filename="vendor/lightgallery.js/dist/js/lightgallery.min.js") }}"></script>
+  <script src="{{ url_for('static', filename="vendor/lg-video.js/dist/lg-video.min.js") }}"></script>
+  <script src="{{ url_for('static', filename="vendor/parallax-js/dist/parallax.min.js") }}"></script>
+  <script src="{{ url_for('static', filename="vendor/tiny-slider/dist/min/tiny-slider.js") }}"></script>
+
+  <!-- Main theme script-->
+  <script src="{{ url_for('static', filename="js/theme.min.js") }}"></script>
+  <script src="{{ url_for('static', filename="js/app.js") }}"></script>
+</body>
+
+</html>

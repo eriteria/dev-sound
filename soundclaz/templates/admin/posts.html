@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Local CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename="css/style.css") }}">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css"
+    integrity="sha384-rtJEYb85SiYWgfpCr0jn174XgJTn4rptSOQsMroFBPQSGLdOC5IbubP6lJ35qoM9" crossorigin="anonymous" />
+  <title>Admin Panel</title>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-sm navbar-dark background-dark p-0">
+    <div class="container">
+      <a href="{{ url_for('admin.index') }}" class="navbar-brand">Admin Panel</a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse"><span
+          class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav">
+          <li class="nav-item px-2">
+            <a href="{{ url_for('admin.index') }}" class="nav-link">Dashboard</a>
+          </li>
+          <li class="nav-item px-2">
+            <a href="{{ url_for('admin.posts') }}" class="nav-link active">Posts</a>
+          </li>
+          <li class="nav-item px-2">
+            <a href="{{ url_for("admin.categories") }}" class="nav-link">Categories</a>
+          </li>
+          <li class="nav-item px-2">
+            <a href="{{ url_for('admin.users') }}" class="nav-link">Users</a>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown mr-3">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+              <i class="fas fa-user"></i> Welcome {% if current_user.is_authenticated %}
+ {{ current_user.name }}
+{% else %}
+ Stranger
+{% endif %}!
+            </a>
+            <div class="dropdown-menu">
+              <a href="{{ url_for('admin.profile') }}" class="dropdown-item">
+                <i class="fas fa-user-circle"></i> Profile
+              </a>
+              <a href="settings.html" class="dropdown-item">
+                <i class="fas fa-cog"></i> Settings
+              </a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url_for("auth.logout") }}" class="nav-link">
+              <i class="fas fa-user-times"></i> Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+    <!-- HEADER -->
+    <header id="main-header" class="py-2 background-primary">
+      <div class="container">
+        <div class="row">
+          <div class="col align-self-center" id="header-div">
+            <h3><i class="fas fa-pencil-alt"></i> Posts</h3>
+          </div>
+        </div>
+      </div>
+    </header>
+  <!-- SEARCH -->
+  <section id="search" class="py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 ml-auto">
+            <form action="{{ url_for('admin.posts') }}" method="post">
+          <div class="input-group">
+                  <input type="text" class="form-control" name="search" placeholder="Search Posts...">
+            <div class="input-group-append">
+              <button class="btn background-primary" id="searchPostBtn">Search</button>
+            </div>
+          </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- POSTS -->
+  <section id="posts">
+    <div class="container">
+      <div class="row">
+        <div class="col" id="postAllParent">
+          <div class="card" id="postAllContainer">
+            <div class="card-header text-center">
+              <h4>All Posts</h4>
+            </div>
+          {% if posts %}
+            <table class="table table-striped" id="postAllTable">
+              <thead class="background-dark">
+                <tr>
+                  <th>#</th>
+                  <th>Title</th>
+                  <th>Category</th>
+                  <th>Date</th>
+                  <th>Details</th>
+                </tr>
+              </thead>
+              <tbody id="postAllTableBody">
+                {% for post in posts.items %}
+                    <tr>
+                    <td>{{ post.id }}</td>
+                    <td>{{ post.title }}</td>
+                    <td>{% for tag in post.tags %} {{ tag.name }}{% endfor %}</td>
+                    <td>{{ post.created_at.strftime('%a, %B %d, %Y') }}</td>
+                    <td>
+                        <a href="{{ url_for('admin.details', post_id=post.id) }}" class="background-secondary">
+                      <button class="btn background-secondary">
+                          <i class="fas fa-angle-double-right">
+                          </i>
+                          Details
+                      </button>
+                      </a>
+                    </td>
+                    </tr>
+                {% endfor %}
+              {% else %}
+                <tr>
+                <th>
+                    <h5>
+                        {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %} {{ message }} {% endfor %} {% endif %} {% endwith %}
+                    </h5>
+                </th>
+                </tr>
+              {% endif %}
+              </tbody>
+            </table>
+          {% if posts %}
+            <!-- PAGINATION -->
+            <nav class="ml-4">
+              <ul class="pagination">
+                <li class="page-item {% if posts.page == 1 %}disabled{% endif %}">
+                  <a href="{{ url_for('admin.posts', page=posts.prev_num) }}" class="page-link">Previous</a>
+                </li>
+              {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+              {% if page_num %}
+<!-- Check for the active page and set the link to "Active"-->
+            {% if posts.page == page_num %}
+                <li class="page-item active">
+            <a href="{{ url_for('admin.posts', page=page_num) }}"
+                class="page-link">
+                {{ page_num }}
+            </a>
+                </li>
+            {% else %}
+                <li class="page-item">
+            <a href="{{ url_for('admin.posts', page=page_num) }}"
+               class="page-link">
+                {{ page_num }}
+            </a>
+                </li>
+            {% endif %}
+        {% else %}
+            ...
+        {% endif %}
+    {% endfor %}
+              <li class="page-item {% if posts.page == posts.pages %}disabled{% endif %}">
+                <a href="{{ url_for('admin.posts', page=posts.next_num) }}"
+       class="page-link">Next
+    </a>
+              </li>
+              </ul>
+            </nav>
+          {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- FOOTER -->
+  <footer id="main-footer" class="background-dark mt-5 p-5">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <p class="lead text-center">
+            Copyright &copy; <span id="year"></span>
+            Admin Panel
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script>
+    // Get the current year for the copyright
+    $('#year').text(new Date().getFullYear());
+  </script>
+{#  <script src="{{ url_for('static', filename="js/utils.js") }}"></script>#}
+</body>
+</html>

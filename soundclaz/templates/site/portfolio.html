@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+<head>
+  <meta charset="utf-8">
+  <title>Soundclaz | Branding Agency - {% block title %}{% endblock %}</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+  <!-- SEO Meta Tags-->
+  <meta name="description" content="Soundclaz - Branding agaency">
+  <meta name="keywords"
+    content="bootstrap, business, branding agency, portfolio, services, branding, web design, logo design, animation">
+  <meta name="author" content="Soundclaz">
+
+  <!-- Viewport-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon and Touch Icons-->
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename="img/whiteicon.png") }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename="img/whiteicon.png") }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename="img/whiteicon.png") }}">
+  <link rel="manifest" href="{{ url_for('static', filename="img/site.webmanifest") }}">
+  <link rel="mask-icon" color="#5bbad5" href="{{ url_for('static', filename="img/safari-pinned-tab.svg") }}">
+  <meta name="msapplication-TileColor" content="#766df4">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Vendor Styles-->
+  <link rel="stylesheet" media="screen" href="{{ url_for('static', filename="vendor/lightgallery.js/dist/css/lightgallery.min.css") }}" />
+  <link rel="stylesheet" media="screen" href="{{ url_for('static', filename="vendor/tiny-slider/dist/tiny-slider.css") }}" />
+
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+
+  <!-- Main Theme Styles + Bootstrap-->
+  <link rel="stylesheet" media="screen" href="{{ url_for('static', filename="css/demo/creative-agency/theme.min.css")}}">
+
+  <!-- Page loading styles-->
+  <style>
+    .cs-page-loading {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-transition: all .4s .2s ease-in-out;
+      transition: all .4s .2s ease-in-out;
+      background-color: #fff;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 9999;
+    }
+
+    .cs-page-loading.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .cs-page-loading-inner {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+      -webkit-transition: opacity .2s ease-in-out;
+      transition: opacity .2s ease-in-out;
+      opacity: 0;
+    }
+
+    .cs-page-loading.active>.cs-page-loading-inner {
+      opacity: 1;
+    }
+
+    .cs-page-loading-inner>span {
+      display: block;
+      font-size: 1rem;
+      font-weight: normal;
+      color: #787a80;
+    }
+
+    .cs-page-spinner {
+      display: inline-block;
+      width: 2.75rem;
+      height: 2.75rem;
+      margin-bottom: .75rem;
+      vertical-align: text-bottom;
+      background-color: #cfcfd1;
+      border-radius: 50%;
+      opacity: 0;
+      -webkit-animation: spinner .75s linear infinite;
+      animation: spinner .75s linear infinite;
+    }
+
+    @-webkit-keyframes spinner {
+      0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+      }
+
+      50% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+      }
+    }
+
+    @keyframes spinner {
+      0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+      }
+
+      50% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+      }
+    }
+  </style>
+
+  <!-- Page loading scripts-->
+  <script>
+    (function () {
+      window.onload = function () {
+        var preloader = document.querySelector('.cs-page-loading');
+        preloader.classList.remove('active');
+        setTimeout(function () {
+          preloader.remove();
+        }, 2000);
+      };
+    })();
+  </script>
+</head>
+<!-- Body-->
+<body>
+
+
+  <!-- Page loading spinner
+  <div class="cs-page-loading active">
+    <div class="cs-page-loading-inner">
+      <div class="cs-page-spinner"></div><span>Loading...</span>
+    </div>
+  </div> -->
+
+  <!-- Main content-->
+  <!-- Wraps everything except footer to push footer to the bottom of the page if there is little content -->
+  <main class="cs-page-wrapper position-relative">
+
+
+    <!-- Navbar -->
+    <!-- Remove .navbar-sticky class to detach .navbar from page scroll -->
+    <header class="cs-header navbar navbar-expand-md navbar-light navbar-sticky">
+        <div class="container px-0 px-xl-3">
+          <a class="navbar-brand order-md-1 mr-md-5 mr-0 pr-lg-2" href="{{ url_for('main_site.index') }}">
+            <img src="{{ url_for('static', filename="img/creative-agency/logo-dark.svg") }}" alt="Createx Logo" width="130">
+          </a>
+          <div class="d-flex align-items-center order-md-3">
+            <a class="btn btn-primary btn-pill d-sm-inline-block d-none ml-3" href="{{ url_for("main_site.contact") }}">Contact us</a>
+            <button class="navbar-toggler ml-1 mr-n3" type="button" data-toggle="collapse" data-target="#navbarCollapse1" aria-expanded="false">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+          <nav class="collapse navbar-collapse order-md-2" id="navbarCollapse1">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('main_site.index') }}">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link active dropdown-toggle" href="#" data-toggle="dropdown">Portfolio</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="{{ url_for('main_site.portfolio') }}">Portfolio</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('main_site.guerrilla') }}">Advertisement Services</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('main_site.product') }}">Product Innovation</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('main_site.digital') }}">Digital Services</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('main_site.about') }}">About us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('blog.home') }}">Blog</a>
+              </li>
+              <li class="nav-item d-sm-none d-block">
+                <a class="nav-link" href="{{ url_for('main_site.contact') }}">Contact us</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+
+    <!-- Portfolio grid-->
+    <section class="py-lg-1 py-1 bg-secondary bg-size-contain bg-position-top-left bg-no-repeat"
+      style="background-image: url({{ url_for('static', filename = "img/creative-agency/portfolio/page-bg.png") }});">
+      <div class="container mt-5 py-3 pb-lg-0 pt-md-1 pt-lg-4">
+
+        <!-- Filterable grid container. IMPORTANT: it should wrap filters/sorters and target grid of items in order for plugin to work! -->
+        <div data-filter-grid>
+          <h3 class="h5 mb-2 text-uppercase">Our Works</h3>
+          <div class="row align-items-end mb-lg-5 mb-4">
+            <div class="col-lg">
+              <h2 class="h1 mb-lg-0 mb-md-3 mb-2">Portfolio</h2>
+            </div>
+            <div class="col-lg-9">
+              <div class="mb-lg-0 mb-4 pb-lg-0 pb-2" data-simplebar data-simplebar-auto-hide="false">
+
+                <!-- Filter navs -->
+                <ul class="nav flex-lg-wrap flex-nowrap justify-content-lg-end mx-lg-0 mx-n3 mt-1 text-nowrap">
+                  <li class="nav-item mb-0">
+                    <span class="nav-link active" data-filter="all">
+                      All
+                      <sup class="ml-1">12</sup>
+                    </span>
+                  </li>
+                  <li class="nav-item mb-0">
+                    <span class="nav-link" data-filter=".logo-design">
+                      Logo Design
+                      <sup class="ml-1">2</sup>
+                    </span>
+                  </li>
+                  <li class="nav-item mb-0">
+                    <span class="nav-link" data-filter=".sinages">
+                      Signage
+                      <sup class="ml-1">2</sup>
+                    </span>
+                  </li>
+                  <li class="nav-item mb-0">
+                    <span class="nav-link" data-filter=".guerrilla">
+                      Guerrilla Marketing
+                      <sup class="ml-1">2</sup>
+                    </span>
+                  </li>
+                  <li class="nav-item mb-0">
+                    <span class="nav-link" data-filter=".branding">
+                      Branding
+                      <sup class="ml-1">4</sup>
+                    </span>
+                  </li>
+                  <li class="nav-item mb-0">
+                    <span class="nav-link" data-filter=".video-production">
+                      Video Production
+                      <sup class="ml-1">2</sup>
+                    </span>
+                  </li>
+                  
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Filterable grid of items -->
+          <div class="row">
+            <!-- Main Div -->
+            <div class="cs-grid-item logo-design col-md-8 pb-lg-2 mb-4">
+              <a class="cs-portfolio-card-scale" href="{{ url_for('main_site.digital') }}">
+                <div class="cs-portfolio-card-img">
+                  <img src="{{ url_for('static', filename="img/creative-agency/portfolio/barbers.jpg") }}" alt="Card image">
+                </div>
+                <div class="cs-portfolio-card-body">
+                  <h3 class="cs-portfolio-card-title">Professional Logo for a barbers shop</h3>
+                  <span class="font-size-sm text-muted">Logo Design</span>
+                </div>
+              </a>
+            </div>
+
+            <!-- Video Production Div-->
+            <div class="cs-grid-item video-production col-md-4 col-sm-6 pb-lg-2 mb-2">
+              <a class="cs-portfolio-card-scale cs-portfolio-card-video" href="{{ url_for('main_site.video') }}">
+                <div class="cs-portfolio-card-img">
+                  <img style="height:100%;"
+                    src="{{ url_for('static', filename="SOUNDCLAZ_IMAGES/popchilly.webp") }}"
+                    alt="Card image">
+                  <span class="cs-video-btn"></span>
+                </div>
+                <div class="cs-portfolio-card-body">
+                  <h3 class="cs-portfolio-card-title">Product Advertisement Concept</h3>
+                  <span class="font-size-sm text-muted">Video Production</span>
+                </div>
+                <div class="cs-portfolio-card-img">
+                  <img style="height:100%;"
+                    src="https://i.ytimg.com/vi/jmp_zRw4zys/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDuA5SkKJE-USOPWhmiEYozHlV30w"
+                    alt="Card image">
+                  <span class="cs-video-btn"></span>
+                </div>
+                <div class="cs-portfolio-card-body">
+                  <h3 class="cs-portfolio-card-title">Product Animation for iPhone</h3>
+                  <span class="font-size-sm text-muted">Video Production</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="cs-grid-item branding col-md-4 col-sm-6 pb-lg-2 mb-4">
+              <a class="cs-portfolio-card-scale" href="{{ url_for('main_site.guerrilla') }}">
+                <div class="cs-portfolio-card-img">
+                  <img src="{{ url_for('static', filename="Soundclaz_Web_Files/buildclad.jpg") }}" alt="Card image">
+                </div>
+                <div class="cs-portfolio-card-body">
+                  <h3 class="cs-portfolio-card-title">Building Cladding</h3>
+                  <span class="font-size-sm text-muted">Branding</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="cs-grid-item logo-design col-md-4 col-sm-6 pb-lg-2 mb-4">
+              <a class="cs-portfolio-card-scale" href="{{ url_for('main_site.digital') }}">
+                <div class="cs-portfolio-card-img">
+                  <img src="{{ url_for('static', filename="SOUNDCLAZ_IMAGES/04.jpg") }}" alt="Card image">
+                </div>
+                <div class="cs-portfolio-card-body">
+                  <h3 class="cs-portfolio-card-title">Logo Design for a firm</h3>
+                  <span class="font-size-sm text-muted">Logo Design</span>
+                </div>
+              </a>
+            </div>
+            <div class="cs-grid-item branding col-md-4 col-sm-6 pb-lg-2 mb-4">
+              <a class="cs-portfolio-card-scale" href="{{ url_for('main_site.digital') }}">
+                <div class="cs-portfolio-card-img">
+                  <img src="{{ url_for('static', filename="SOUNDCLAZ_IMAGES/tshirt.jpg") }}" alt="Card image"
+                    style="height: 280px ">
+                </div>
+                <div class="cs-portfolio-card-body">
+                  <h3 class="cs-portfolio-card-title">T-Shirt Mockup</h3>
+                  <span class="font-size-sm text-muted">Branding</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="cs-grid-item branding col-md-8 pb-lg-2 mb-4">
+              <a class="cs-portfolio-card-scale" href="{{ url_for('main_site.totem') }}">
+                <div class="cs-portfolio-card-img">
+                  <img src="{{ url_for('static', filename="Soundclaz_Web_Files/shed.jpg") }}" alt="Steel Shed"
+                    style="height: 400px;">
+                </div>
+                <div class="cs-portfolio-card-body">
+                  <h3 class="cs-portfolio-card-title">Fuel Station Steel Shed</h3>
+                  <span class="font-size-sm text-muted">Branding</span>
+                </div>
+              </a>
+            </div>
+            <div class="cs-grid-item guerrilla col-md-4 col-sm-6 pb-lg-2 mb-4">
+              <a class="cs-portfolio-card-scale" href="{{ url_for('main_site.guerrilla') }}">
+                <div class="cs-portfolio-card-img">
+                  <img src="{{ url_for('static', filename="Soundclaz_Web_Files/gg.jpg") }}" alt="Card image" style="height: 400px;">
+                </div>
+                <div class="cs-portfolio-card-body">
+                  <h3 class="cs-portfolio-card-title">Vehicle Wrapping</h3>
+                  <span class="font-size-sm text-muted">Guerrilla Marketing</span>
+                </div>
+              </a>
+            </div>
+            <div class="cs-grid-item guerrilla col-md-4 col-sm-6 pb-lg-2 mb-4">
+              <a class="cs-portfolio-card-scale" href="{{ url_for('main_site.guerrilla') }}">
+                <div class="cs-portfolio-card-img">
+                  <img src="{{ url_for('static', filename="SOUNDCLAZ_IMAGES/CuvTaHkWgAE9Mu5.jpg") }}" alt="Card image">
+                </div>
+                <div class="cs-portfolio-card-body">
+                  <h3 class="cs-portfolio-card-title">Billboard</h3>
+                  <span class="font-size-sm text-muted">Guerrilla Marketing</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="cs-grid-item sinages col-md-4 col-sm-6 pb-lg-2 mb-4">
+              <a class="cs-portfolio-card-scale" href="{{ url_for('main_site.totem') }}">
+                <div class="cs-portfolio-card-img">
+                  <img src="{{ url_for('static', filename="SOUNDCLAZ_IMAGES/enseigne-drapeau.jpg") }}" alt="Card image">
+                </div>
+                <div class="cs-portfolio-card-body">
+                  <h3 class="cs-portfolio-card-title">LED Signage</h3>
+                  <span class="font-size-sm text-muted">Signage</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="cs-grid-item branding col-md-4 col-sm-6 pb-lg-2 mb-4">
+              <a class="cs-portfolio-card-scale" href="{{ url_for('main_site.product') }}">
+                <div class="cs-portfolio-card-img">
+                  <img src="{{ url_for('static', filename="SOUNDCLAZ_IMAGES/pc.jpg") }}" alt="Card image">
+                  <div class="ribbon ribbon-top-left"><span>Introducing</span></div>
+                </div>
+                <div class="cs-portfolio-card-body">
+                  <h3 class="cs-portfolio-card-title">Trolleys</h3>
+                  <span class="font-size-sm text-muted">Business Innovation</span>
+                </div>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Testimonials -->
+    <section class="container pt-lg-6 py-5">
+      <div class="row pt-3 pt-lg-0">
+        <div class="col-md-6">
+          <h3 class="h6 mb-2 text-uppercase">Testimonials</h3>
+          <h2 class="h1 mb-lg-5 mb-4 pb-2">What clients say about us</h2>
+
+          <!-- Carousel custom controls -->
+          <div class="tns-custom-controls cs-controls-inverse d-md-flex d-none mb-n5 mx-0" id="tns-custom-controls"
+            tabindex="0">
+            <button class="mb-n2" type="button" data-controls="prev" tabindex="-1">
+              <i class="cxi-arrow-left"></i>
+            </button>
+            <button class="mb-n2" type="button" data-controls="next" tabindex="-1">
+              <i class="cxi-arrow-right"></i>
+            </button>
+          </div>
+
+          <!-- Carousel -->
+          <div class="cs-carousel cs-nav-outside">
+            <div class="cs-carousel-inner" data-carousel-options='{
+                "gutter": 15,
+                "controlsContainer": "#tns-custom-controls",
+                "autoHeight": true,
+                "responsive": {
+                  "0": {
+                    "nav": true
+                  },
+                  "768": {
+                    "nav": false
+                  }
+                }
+              }'>
+
+              <!-- Carousel testimonial item -->
+              <blockquote>
+                <img class="mb-4 rounded-circle" src="{{ url_for('static', filename="img/bolupic.jpg") }}" width="72"
+                  alt="Author">
+                <p>I had an idea of the story I wanted my company to tell; but I didn't know how to do it, so I got Soundclaz to help. They knew exactly what I was going for even if I couldn't quite find the right words. It was as though they were helping me finish the sentences bubbling in my head. That's professionalism right there. Glad to have worked with them.</p>
+                <footer>
+                  <h3 class="h6 mb-0">Okunande, Boluwaduro</h3>
+                  <span class="font-size-sm text-muted">CEO, Trade With Bolu</span>
+                </footer>
+              </blockquote>
+
+              <!-- Carousel testimonial item -->
+              <blockquote>
+                <img class="mb-4 rounded-circle" src="{{ url_for('static', filename="img/photo_2021-08-22_23-57-52.jpg") }}" width="72"
+                  alt="Author">
+                <p>Soundclaz is very creative and produces quality materials even within short time frames; they are reliable and my go-to for flyers, posters and video editing.</p>
+                <footer>
+                  <h3 class="h6 mb-0">Wisdom Akpokighe</h3>
+                  <span class="font-size-sm text-muted">Regulated Canadian Immigration Consultant,</br>    Dow Immigration Consulting Services LTD</span>
+                </footer>
+
+              </blockquote>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 col-md-6 d-md-block d-none ml-lg-auto">
+          <img class="rounded" src="{{ url_for('static', filename="img/creative-agency/testimonials/03.jpg") }}" alt="Testimonials">
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- Footer -->
+  <footer class="cs-footer pt-3 bg-dark">
+    <div class="container py-lg-5 py-4">
+      <div class="row">
+        <div class="col-lg-2 col-md-3 col-12 order-md-1 order-2 mb-md-0 mb-4">
+          <h3 class="h6 mb-3 text-uppercase text-light">Want to hire us?</h3>
+          <ul class="nav nav-light flex-column">
+            <li class="nav-item mb-2">
+              <a href="tel:+2347035616553" class="nav-link p-0 font-weight-normal">
+                <span class="text-light">Call: </span>
+                +2347035616553
+              </a>
+            </li>
+            <li class="nav-item mb-2">
+              <a href="mailto:support@soundclaz.com" class="nav-link p-0 font-weight-normal">
+                <span class="text-light">Email: </span>
+                support@soundclaz.com
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-3 col-12 order-md-2 order-1 offset-lg-1 mb-md-0 mb-4">
+          <h3 class="h6 mb-3 text-uppercase text-light">Quick links</h3>
+          <ul class="nav nav-light flex-md-column flex-sm-row flex-column">
+            <li class="nav-item mb-2">
+              <a href="{{ url_for('main_site.index') }}" class="nav-link mr-md-0 mr-sm-4 p-0 font-weight-normal">Homepage</a>
+            </li>
+            <li class="nav-item mb-2">
+              <a href="{{ url_for('main_site.portfolio') }}" class="nav-link mr-md-0 mr-sm-4 p-0 font-weight-normal">Portfolio</a>
+            </li>
+            <li class="nav-item mb-2">
+              <a href="about.html" class="nav-link mr-md-0 mr-sm-4 p-0 font-weight-normal">About us</a>
+            </li>
+            <li class="nav-item mb-2">
+              <a href="{{ url_for('blog.home') }}" class="nav-link mr-md-0 mr-sm-4 p-0 font-weight-normal">Blog</a>
+            </li>
+            <li class="nav-item mb-2">
+              <a href="{{ url_for('main_site.contact') }}" class="nav-link mr-md-0 mr-sm-4 p-0 font-weight-normal">Contacts</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3 col-sm-6 order-md-3 order-sm-4 order-3 offset-lg-1 mb-md-0 mb-4">
+          <div class="col-12">
+            <h3 class="h6 mb-3 text-uppercase text-light">Follow us</h3>
+            <a href="https://www.facebook.com/Soundclaz-103697141997508"
+              class="social-btn sb-solid sb-round sb-light mr-2 mb-2 mt-md-0 mt-sm-1">
+              <i class="cxi-facebook"></i>
+            </a>
+            <a href="http://instagram.soundclaz.com/"
+              class="social-btn sb-solid sb-round sb-light mr-2 mb-2 mt-md-0 mt-sm-1">
+              <i class="cxi-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/soundclaz/"
+              class="social-btn sb-solid sb-round sb-light mr-2 mb-2 mt-md-0 mt-sm-1">
+              <i class="cxi-linkedin"></i>
+            </a>
+            <a href="http://pinterest.soundclaz.com/" class="social-btn sb-solid sb-round sb-light mb-2 mt-md-0 mt-sm-1">
+              <i class="cxi-pinterest"></i>
+            </a>
+            <a href="http://youtube.soundclaz.com/" class="social-btn sb-solid sb-round sb-light mb-2 mt-md-0 mt-sm-1">
+              <i class="cxi-youtube"></i>
+            </a>
+          </div>
+            <div class="col-12">
+            <a href="https://www.sortlist.com/agency/soundclaz">
+              <img class="d-block mt-md-3 mt-2" src="{{ url_for('static', filename="img/creative-agency/logo/sortlist.svg") }}" alt="Brand logo">
+            </a>
+            <a href="https://clutch.co/profile/soundclaz">
+              <img class="d-block mt-md-3 mt-2" src="{{ url_for('static', filename="img/New-Clutch-Tagline-white.png") }}" alt="Brand logo">
+            </a>
+
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 order-md-4 order-sm-3 order-4 mb-md-0 mb-4">
+          <h3 class="h6 mb-3 text-uppercase text-light">Subscribe</h3>
+          <form method="post" action="{{ url_for('main_site.subscribe') }}">
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+            <div class="input-group-overlay input-group-light form-group mb-2 pb-1">
+                <input class="form-control appended-form-control" type="text" name="subscribe-email" placeholder="Email address*">
+              <div class="input-group-append-overlay">
+                <span class="input-group-text">
+                  <button class="btn btn-link bt-sm px-0" type="submit">
+                    <i class="cxi-arrow-right lead mt-n1"></i>
+                  </button>
+                </span>
+              </div>
+            </div>
+            <small class="form-text text-light">*Subscribe to our newsletter to receive early discount offers, updates
+              and new products info.</small>
+          </form>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between mt-2 pt-1">
+        <div class="d-flex align-items-end">
+          <span class="d-sm-inline-block d-none text-light font-size-sm mr-3">Back to top</span>
+          <a class="btn-scroll-top position-static rounded-circle" href="#top" data-scroll>
+            <i class="btn-scroll-top-icon cxi-angle-up"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Vendor scripts: js libraries and plugins-->
+  <script src="{{ url_for('static', filename="vendor/jquery/dist/jquery.slim.min.js") }}"></script>
+  <script src="{{ url_for('static', filename="vendor/bootstrap/dist/js/bootstrap.bundle.min.js") }}"></script>
+  <script src="{{ url_for('static', filename="vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js") }}"></script>
+  <script src="{{ url_for('static', filename="vendor/simplebar/dist/simplebar.min.js") }}"></script>
+  <script src="{{ url_for('static', filename="vendor/tiny-slider/dist/min/tiny-slider.js") }}"></script>
+  <script src="{{ url_for('static', filename="vendor/mixitup/dist/mixitup.min.js") }}"></script>
+
+  <!-- Main theme script-->
+  <script src="{{ url_for('static', filename="js/theme.min.js") }}"></script>
+<!-- Tawk.to -->
+  <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6081f3845eb20e09cf35b520/1f3tpufhg';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+</body>
+
+</html>

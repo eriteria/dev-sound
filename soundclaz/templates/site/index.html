@@ -1,0 +1,718 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <!-- Hero-->
+    <section class="cs-carousel cs-controls-onhover">
+      <div class="cs-carousel-inner" data-carousel-options='{
+        "mode": "gallery",
+        "navContainer": "#pager",
+        "responsive": {
+          "0": { "controls": false },
+          "991": { "controls": true }
+        }
+      }'>
+
+        <!-- Slide 1 -->
+        <div class="bg-size-cover py-xl-6" style="background-image: url({{url_for('static', filename="img/home_pic.jpg") }}); height:800px;">
+          <div class="container mt-5 pt-5 pb-6">
+            <div class="row pb-lg-6">
+              <div class="col-lg-12 offset-lg-1 offset-xl-0 pb-4 pb-md-6">
+                <h1 class="text-white text-center cs-from-left cs-delay-1" style="line-height:400px; font-size:50px;">We are here to actualize your company's goals...</h1>
+                <!--<h2 class="display-2 mb-lg-3 pb-3 text-warning cs-from-left">Soundclaz</h2>-->
+                <!--<h3 class="font-size-lg cs-from-left text-warning cs-delay-1">Wishing you a Merry Christmas.....🧑‍🎄</h3>-->
+                <!--<div class="mb-4 cs-scale-up cs-delay-2">-->
+                <!--  <a href="{{ url_for('main_site.about') }}" class="btn btn-danger btn-lg">About Us</a>-->
+                <!--</div>-->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="bg-size-cover py-xl-6"  style="background-image:url({{url_for('static', filename="img/coca-cola.jpg") }}); height:800px">
+          <div class="container pt-5 pb-6">
+            <div class="row pb-lg-6">
+              <div class="col-lg-12 offset-lg-1 offset-xl-0 pb-4 pb-md-6">
+                <h1 class="text-white text-center cs-from-left cs-delay-1" style="line-height:400px; font-size:50px;">Advertisement has never been easier...</h1>
+                <!--<h2 class="display-4 mb-lg-5 pb-3 cs-scale-down text-white">On the first day of Christmas Soundclaz gave to me....<span class> 🤔</span></h2>-->
+                <!--<h3 class="font-size-lg cs-from-left text-white cs-delay-1">A discount on my first purchase🧢😂</h3>-->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="bg-size-cover py-xl-6"  style="background-image: url({{url_for('static', filename="img/Abstract.jpg") }}); height:800px">
+          <div class="container pt-5 pb-6">
+            <div class="row pb-lg-6">
+              <div class="col-lg-12 offset-lg-1 offset-xl-0 pb-4 pb-md-6">
+                <h1 class="text-white text-center cs-from-left cs-delay-1" style="line-height:400px; font-size:50px;">Experience abstract and immersive designs....</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <!-- Pager -->
+      <div class="container position-relative">
+        <div class="row mt-lg-n5">
+          <div class="col-lg-7 col-md-8 col-sm-10 offset-lg-1 offset-xl-0">
+            <div class="position-relative">
+              <div id="pager" class="cs-pager cs-pager-inverse mb-xl-5 pb-5 pb-md-6">
+                <button type="button" data-nav="0">01</button>
+                <button type="button" data-nav="1">02</button>
+                <button type="button" data-nav="2">03</button>
+                <button type="button" data-nav="3">04</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission -->
+    <section id="mission" class="container py-lg-6 py-5 my-3 mt-lg-1 mb-sm-5">
+      <h3 class="h4 mb-3 pb-1 text-uppercase text-primary">What we do</h3>
+      <div class="row">
+        <div class="col-lg-7 col-md-6">
+          <p class=" mb-md-0 mb-3 pb-md-0 pb-1 line-height-base">To create, design and brand new and existing
+            companies. To take the confusions and turn them into manifestations that gives a clear understanding of
+            products or brand with optimum promotion services. To provide innovative and effective integrated branding
+            and advertising solutions which help our clients grow their businesses and realize their marketing goals.
+          </p>
+        </div>
+        <div class="col-lg-5 col-md-6 overflow-hidden">
+          <div class="d-flex justify-content-md-end flex-sm-nowrap flex-wrap mx-n4">
+            <div class="mb-sm-0 mb-4 px-4">
+              <span class="d-inline-block pb-1 font-size-sm text-dark text-nowrap">Highlighted in</span>
+              <img class="d-block mt-md-3 mt-2"  style="width: 150px;"
+                src="{{ url_for('static', filename="/img/creative-agency/logo/sortlist.svg") }}" alt="Brand logo">
+            </div>
+            <div class="mb-sm-0 mb-4 px-4">
+                  <span class="d-inline-block pb-1 font-size-sm text-dark text-nowrap">Top rated agency</span>
+                  <img class="d-block mt-md-3 mt-2" src="{{ url_for('static', filename="/img/creative-agency/logo/clutch.svg") }}"  alt="Brand logo">
+                </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Approach -->
+    <section class="pt-lg-3 pb-4">
+      <div class="container">
+        <h3 class="h4 mb-3 text-uppercase text-primary">Our approach</h3>
+      </div>
+
+      <!-- Carousel -->
+      <div class="container px-0">
+        <div class="cs-carousel cs-nav-outside mt-n4 ml-lg-n5">
+          <div class="cs-carousel-inner pt-4 pl-lg-5" data-carousel-options='{
+              "loop": false,
+              "controls": false,
+              "responsive": {
+                "0": {
+                  "items": 1
+                },
+                "576": {
+                  "items": 2
+                },
+                "768": {
+                  "items": 3
+                },
+                "992": {
+                  "items": 4
+                }
+              }
+            }'>
+
+            <!-- Horizontal step item -->
+            <div class="cs-step pt-2 px-3">
+              <div class="cs-step-head mb-3">
+                <span class="cs-step-indicator">01</span>
+                <span class="cs-step-line"></span>
+              </div>
+              <div class="cs-step-body">
+                <h3 class="h5 mb-2">Research</h3>
+                <p class="mb-0 text-muted">This is where we hold discovery sessions to create user profiles and find out our clients' wants and needs. We also take an in-depth look into history and present trends to uncover a strategy that will grant our clients a competitive edge</p>
+              </div>
+            </div>
+
+            <!-- Horizontal step item -->
+            <div class="cs-step pt-2 px-3">
+              <div class="cs-step-head mb-3">
+                <span class="cs-step-indicator">02</span>
+                <span class="cs-step-line"></span>
+              </div>
+              <div class="cs-step-body">
+                <h3 class="h5 mb-2">Prototyping</h3>
+                <p class="mb-0 text-muted">On the basis of insights gotten from our research phase, we get to work. Concepts in our mood boards and style precepts come to life in a miniature and experimental manner.</p>
+              </div>
+            </div>
+
+            <!-- Horizontal step item -->
+            <div class="cs-step pt-2 px-3">
+              <div class="cs-step-head mb-3">
+                <span class="cs-step-indicator">03</span>
+                <span class="cs-step-line"></span>
+              </div>
+              <div class="cs-step-body">
+                <h3 class="h5 mb-2">Presentation</h3>
+                <p class="mb-0 text-muted">Our clients are the first critics. How does it look to them? Does it pass the message they want? We do this to give our clients the chance to critique what we're about to put out.</p>
+              </div>
+            </div>
+
+            <!-- Horizontal step item -->
+            <div class="cs-step pt-2 px-3">
+              <div class="cs-step-head mb-3">
+                <span class="cs-step-indicator">04</span>
+                <span class="cs-step-line"></span>
+              </div>
+              <div class="cs-step-body">
+                <h3 class="h5 mb-2">Implemetation</h3>
+                <p class="mb-0 text-muted">After our clients have voiced their opinions, it's time to take action. We put up the billboards, shoot the commercials, post the logo, launch the website and much more</p>
+              </div>
+            </div>
+
+            <!-- Horizontal step item -->
+            <div class="cs-step pt-2 px-3">
+              <div class="cs-step-head mb-3">
+                <span class="cs-step-indicator">05</span>
+              </div>
+              <div class="cs-step-body">
+                <h3 class="h5 mb-2">Monitoring</h3>
+                <p class="mb-0 text-muted">Our project is now out there, the client is satisfied, but there's always need for icing on the cake. This can be in form of social media management.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Services -->
+    <section class="container py-lg-6 mb-md-3 mb-lg-0 py-5 ">
+      <h3 class="h6 mb-2 text-uppercase text-primary">Capabilities</h3>
+      <h2 class="h1 mb-lg-4 mb-2 pb-3">Our services</h2>
+      <div class="row align-items-center">
+        <div class="col-md-5 order-md-1 order-2">
+
+          <!-- Accordion made of cards -->
+          <div class="accordion" id="accordionServices">
+
+            <!-- Card -->
+            <div class="card">
+              <div class="card-header pt-0" id="servicesHeadingOne">
+                <h3 class="accordion-heading">
+                  <a href="#servicesCollapseOne" role="button" data-toggle="collapse" data-binded-content="#web"
+                    aria-expanded="true" aria-controls="servicesCollapseOne">
+                    <span class="accordion-indicator"></span>
+                    Digital Services
+                  </a>
+                </h3>
+              </div>
+              <div class="collapse show" id="servicesCollapseOne" aria-labelledby="servicesHeadingOne"
+                data-parent="#accordionServices">
+                <div class="card-body">
+                  <ul>
+                    <tr>
+                      <li>Brand Identity Design</li>
+                      <li>Website Development</li>
+                      <li>3D Product Animation</li>
+                        <li>UI/UX</li>
+                        <li>Graphic Design</li>
+                      <li>Promotional Videos</li>
+                      <li>Product Design</li>
+
+                    </tr>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card -->
+            <div class="card">
+              <div class="card-header" id="servicesHeadingTwo">
+                <h3 class="accordion-heading">
+                  <a href="#servicesCollapseTwo" role="button" data-toggle="collapse" data-binded-content="#photography"
+                    aria-expanded="false" aria-controls="servicesHeadingTwo" class="collapsed">
+                    <span class="accordion-indicator"></span>
+                    Advertisement Services
+                  </a>
+                </h3>
+              </div>
+              <div class="collapse" id="servicesCollapseTwo" aria-labelledby="servicesHeadingTwo"
+                data-parent="#accordionServices">
+                <div class="card-body">
+                  <ul>
+                    <li>Signage and Billboard </li>
+                    <li>Building Cladding </li>
+                    <li>Vehicle Wrap</li>
+                    <li>Exhibition and POS Stands</li>
+                    <li>Outdoor and Indoor Branding  </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card -->
+            <div class="card">
+              <div class="card-header" id="servicesHeadingThree">
+                <h3 class="accordion-heading">
+                  <a href="#servicesCollapseThree" role="button" data-toggle="collapse" data-binded-content="#identity"
+                    aria-expanded="false" aria-controls="servicesCollapseThree" class="collapsed">
+                    <span class="accordion-indicator"></span>
+                    Product Innovation
+                  </a>
+                </h3>
+              </div>
+              <div class="collapse" id="servicesCollapseThree" aria-labelledby="servicesHeadingThree"
+                data-parent="#accordionServices">
+                <div class="card-body">
+                  <ul>
+                    <li>Mobile Trolleys</li>
+                    <li>Usherette Tray</li>
+                    <li>Motorcycle Delivery</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-7 order-md-2 order-1 ml-auto">
+
+          <!-- Images binded to accordion -->
+          <div class="cs-binded-content mb-4">
+            <div id="identity" class="cs-binded-item active">
+              <img class="d-block"  src="{{ url_for('static', filename="img/creative-agency/home/services/03.svg") }}"
+                alt="Identity Design &amp; Illustration">
+            </div>
+            <div id="web" class="cs-binded-item">
+              <img class="d-block"  src="{{ url_for('static', filename="img/creative-agency/home/services/01.svg") }}" alt="UX / UI Design">
+            </div>
+            <div id="photography" class="cs-binded-item">
+              <img class="d-block"  src="{{ url_for('static', filename="img/creative-agency/home/services/02.svg") }}"
+                alt="Photography &amp; Video Production">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+     <div id="affiliate" class="text-center p-5" style="background-color: #001239;">
+                    <h1 class="text-white fw-bold" style="margin-bottom: 40px; font-size:2rem;">Interested in Becoming<br>
+                         a Soundclaz Affiliate?</h1>
+                    <a class="btn btn-lg btn-primary text-white text-decoration-none" href="{{ url_for('main_site.affiliate') }}">Start earning now</a>
+    </div>
+
+
+    <!-- Portfolio: Featured projects -->
+    <section id="portfolio" class="py-lg-6 py-5" style="background-color: #f5f5f5;">
+      <div class="container py-3 py-lg-0">
+        <h3 class="h6 mb-2 text-uppercase text-primary">Check out our latest projects</h3>
+        <div class="mb-lg-5 mb-4 d-flex justify-content-between">
+          <h2 class="h1 mb-0">Selected work</h2>
+          <div class="tns-custom-controls cs-controls-inverse mb-md-n4" id="tns-portfolio-controls" tabindex="0">
+            <button type="button" data-controls="prev" tabindex="-1">
+              <i class="cxi-arrow-left"></i>
+            </button>
+            <button type="button" data-controls="next" tabindex="-1">
+              <i class="cxi-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="container px-0">
+
+        <!-- Carousel  -->
+        <div class="cs-carousel mt-n2 mb-4">
+          <div class="cs-carousel-inner" data-carousel-options='{
+              "nav": false,
+              "controlsContainer": "#tns-portfolio-controls",
+              "responsive": {
+                "0": {
+                  "items": 1
+                },
+                "576": {
+                  "items": 2
+                },
+                "768": {
+                  "items": 3
+                }
+              }
+            }'>
+
+            <div class="rounded">
+              <a class="cs-portfolio-card-scale text-decoration-none mt-3 mx-3" href="{{ url_for('main_site.product') }}">
+                <div class="cs-portfolio-card-img">
+                  <img src="{{ url_for('static', filename="img/selected-works/05.jpg") }}"  alt="Card image">
+                </div>
+                <div class="cs-portfolio-card-body">
+                  <h3 class="cs-portfolio-card-title">Product Shoot</h3>
+                  <span class="font-size-sm text-muted">Digital Services</span>
+                </div>
+              </a>
+            </div>
+
+
+            <div class="rounded">
+              <a class="cs-portfolio-card-scale text-decoration-none mt-3 mx-3" href="{{ url_for('main_site.product') }}">
+                <div class="cs-portfolio-card-img">
+                  <img src="{{ url_for('static', filename="img/selected-works/04.jpg") }}"  alt="Card image">
+                </div>
+                <div class="cs-portfolio-card-body">
+                  <h3 class="cs-portfolio-card-title">Product Shoot</h3>
+                  <span class="font-size-sm text-muted">Digital Services</span>
+                </div>
+              </a>
+            </div>
+
+
+            <div class="rounded">
+              <a class="cs-portfolio-card-scale text-decoration-none mt-3 mx-3" href="{{ url_for('main_site.product') }}">
+                <div class="cs-portfolio-card-img">
+                  <img src="{{ url_for('static', filename="img/selected-works/01.jpg") }}"  alt="Card image">
+                </div>
+                <div class="cs-portfolio-card-body">
+                  <h3 class="cs-portfolio-card-title">Product Design</h3>
+                  <span class="font-size-sm text-muted">Branding</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="rounded">
+              <a class="cs-portfolio-card-scale text-decoration-none mt-3 mx-3" href="{{ url_for('main_site.digital') }}">
+                <div class="cs-portfolio-card-img">
+                  <img src="{{ url_for('static', filename="SOUNDCLAZ_IMAGES/Afrotern.jpg") }}"  alt="Card image">
+                </div>
+                <div class="cs-portfolio-card-body">
+                  <h3 class="cs-portfolio-card-title">Logo Design</h3>
+                  <span class="font-size-sm text-muted">Branding</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center align-items-center flex-md-row flex-column px-3">
+          <h3 class="mb-md-0">Love our work?</h3>
+          <a href="{{ url_for('main_site.portfolio') }}" class="ml-md-4 btn btn-lg btn-primary btn-pill">View portfolio</a>
+        </div>
+      </div>
+    </section>
+
+
+
+
+     <!-- Testimonials -->
+     <section class="container pb-5 pb-lg-4">
+      <h3 class="h2 mb-2 text-uppercase mt-5 text-primary">Testimonials</h3>
+      <h2 class="h5 mb-lg-5 mb-4 pb-2">What they say about us</h2>
+
+      <!-- Carousel custom controls -->
+      <div class="tns-custom-controls cs-controls-inverse d-md-flex d-none mb-n5 mx-5" id="tns-custom-controls"
+        tabindex="0">
+        <button class="mb-n2 text-success" type="button" data-controls="prev" tabindex="-1">
+          <i class="cxi-arrow-left"></i>
+        </button>
+        <button class="mb-n2 text-success" type="button" data-controls="next" tabindex="-1">
+          <i class="cxi-arrow-right"></i>
+        </button>
+      </div>
+
+      <!-- Carousel -->
+      <div class="cs-carousel cs-nav-outside">
+        <div class="cs-carousel-inner" data-carousel-options='{
+            "gutter": 15,
+            "controlsContainer": "#tns-custom-controls",
+            "autoHeight": true,
+            "responsive": {
+              "0": {
+                "nav": true
+              },
+              "768": {
+                "nav": false
+              }
+            }
+          }'>
+
+              <!-- Testimonial -->
+              <div class="d-lg-flex">
+              <blockquote class="border-bottom ml-3 border-4 col-lg-6">
+                <img class="mb-4 rounded-circle"  src="{{ url_for('static', filename="img/bolupic.jpg") }}" width="72"
+                   alt="Author">
+                <p>I had an idea of the story I wanted my company to tell; but I didn't know how to do it, so I got Soundclaz to help. They knew exactly what I was going for even if I couldn't quite find the right words. It was as though they were helping me finish the sentences bubbling in my head. That's professionalism right there. Glad to have worked with them.</p>
+                <footer>
+                  <h3 class="h6 mb-0">Okunande, Boluwaduro</h3>
+                  <span class="font-size-sm text-muted">CEO, Trade With Bolu</span>
+                </footer>
+              </blockquote>
+              <div class="col-lg-6">
+                <img class="" src="{{ url_for('static', filename="SOUNDCLAZ_IMAGES/04.jpg") }}"  alt="Testimonials">
+              </div>
+              </div>
+
+              <!-- Testimonial -->
+              <div class="d-lg-flex">
+              <blockquote class="border-bottom ml-3 border-4 col-lg-6">
+                <img class="mb-4 rounded-circle"  src="{{ url_for('static', filename="img/photo_2021-08-22_23-57-52.jpg") }}" width="72"
+                  alt="Author">
+                <p>Soundclaz is very creative and produces quality materials even within short time frames; they are reliable and my go-to for flyers, posters and video editing.</p>
+                <footer>
+                  <h3 class="h6 mb-0">Wisdom Akpokighe</h3>
+                    <span class="font-size-sm text-muted">Regulated Canadian Immigration Consultant,</br>    Dow Immigration Consulting Services LTD</span>
+                </footer>
+              </blockquote>
+              <div class="col-lg-6">
+                <img class="" src="{{ url_for('static', filename="SOUNDCLAZ_IMAGES/DOW.jpg") }}"  alt="Testimonials">
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        </section>
+    </section>
+
+
+    <!-- Blog (Recent posts) -->
+    <section class="bg-secondary pt-lg-6 py-5">
+      <div class="container pt-3 pt-lg-0">
+        <h3 class="h6 mb-2 text-uppercase">Our blog</h3>
+        <h2 class="h1 mb-lg-5 mb-4 pb-2 d-flex align-items-center justify-content-between">
+          Recent news
+          <a href="{{ url_for('blog.home') }}" class="btn btn-outline-primary btn-pill">View blog</a>
+        </h2>
+        <div class="row">
+
+          <!-- Post card: image fade in -->
+          <div class="col-lg-4 col-sm-6 mb-sm-grid-gutter mb-3">
+            <article class="cs-image-scale card box-shadow card-hover border-0">
+              <a class="cs-image-inner card-img-top" href="{{ url_for("blog.blog1") }}">
+                <img src="{{ url_for('static', filename="img/creative-agency/blog/nike.jpg") }}" alt="Blog card image">
+              </a>
+              <div class="card-body">
+                <h3 class="h5 mb-2 pb-1">
+                  <a class="nav-link" href="{{ url_for("blog.blog1") }}">The Logo Doesn't tell the whole story</a>
+                </h3>
+                <ul class="nav nav-muted mb-2 pb-1">
+                  <li class="nav-item mr-2">
+                    <a class="nav-link d-inline-block mr-2 p-0 font-size-sm font-weight-normal" href="#">
+                      Business
+                    </a>
+                    <span class="text-border px-1">|</span>
+                  </li>
+                  <li class="nav-item mr-2">
+                    <a class="nav-link d-inline-block mr-2 p-0 font-size-sm font-weight-normal" href="#">
+                      June 09, 2021
+                    </a>
+                    <span class="text-border px-1">|</span>
+                  </li>
+                  <li class="nav-item mr-2">
+                    <a class="nav-link d-inline-block mr-2 p-0 font-size-sm font-weight-normal" href="#">
+                      <i class="cxi-chat mt-n1 mr-2 font-size-base align-middle"></i>
+                      0 comments
+                    </a>
+                  </li>
+                </ul>
+                <p class="card-text">Let’s travel back in time to 1971. We’re going to meet a Portland University student named Carolyn Davidson. We tell her we want a logo, one that represents ‘movement’. She agrees. After ...</p>
+              </div>
+            </article>
+          </div>
+
+          <!-- Post card: image fade in -->
+          <div class="col-lg-4 col-sm-6 mb-sm-grid-gutter mb-3">
+            <article class="cs-image-scale card box-shadow card-hover border-0">
+              <a class="cs-image-inner card-img-top" href="{{ url_for("blog.blog2") }}">
+                <img src="{{ url_for('static', filename="img/creative-agency/blog/startup.jpg") }}"  alt="Blog card image" >
+              </a>
+              <div class="card-body">
+                <h3 class="h5 mb-2 pb-1">
+                  <a class="nav-link" href="{{ url_for("blog.blog2") }}">How to convert your business idea to a startup</a>
+                </h3>
+                <ul class="nav nav-muted mb-2 pb-1">
+                  <li class="nav-item mr-2">
+                    <a class="nav-link d-inline-block mr-2 p-0 font-size-sm font-weight-normal" href="#">
+                      Business
+                    </a>
+                    <span class="text-border px-1">|</span>
+                  </li>
+                  <li class="nav-item mr-2">
+                    <a class="nav-link d-inline-block mr-2 p-0 font-size-sm font-weight-normal" href="#">
+                      June 20, 2021
+                    </a>
+                    <span class="text-border px-1">|</span>
+                  </li>
+                  <li class="nav-item mr-2">
+                    <a class="nav-link d-inline-block mr-2 p-0 font-size-sm font-weight-normal" href="#">
+                      <i class="cxi-chat mt-n1 mr-2 font-size-base align-middle"></i>
+                      5 comments
+                    </a>
+                  </li>
+                </ul>
+                <p class="card-text">Let’s travel back in time to 1971. We’re going to meet a Portland University student named Carolyn Davidson. We tell her we want a logo, one that represents ‘movement’....</p>
+              </div>
+            </article>
+          </div>
+
+          <!-- Post card: image fade in -->
+          <div class="col-lg-4 col-sm-6 d-sm-none d-lg-block mb-sm-grid-gutter mb-3">
+            <article class="cs-image-scale card box-shadow card-hover border-0">
+              <a class="cs-image-inner card-img-top" href="{{ url_for("blog.blog3") }}">
+                <img src="{{ url_for('static', filename="img/creative-agency/blog/communicate.jpg") }}"  alt="Blog card image">
+              </a>
+              <div class="card-body">
+                <h3 class="h5 mb-2 pb-1">
+                  <a class="nav-link" href="{{ url_for("blog.blog3") }}">How to Communicate Better with Your Customers</a>
+                </h3>
+                <ul class="nav nav-muted mb-2 pb-1">
+                  <li class="nav-item mr-2">
+                    <a class="nav-link d-inline-block mr-2 p-0 font-size-sm font-weight-normal" href="#">
+                      Industry News
+                    </a>
+                    <span class="text-border px-1">|</span>
+                  </li>
+                  <li class="nav-item mr-2">
+                    <a class="nav-link d-inline-block mr-2 p-0 font-size-sm font-weight-normal" href="#">
+                      June 24, 2020
+                    </a>
+                    <span class="text-border px-1">|</span>
+                  </li>
+                  <li class="nav-item mr-2">
+                    <a class="nav-link d-inline-block mr-2 p-0 font-size-sm font-weight-normal" href="#">
+                      <i class="cxi-chat mt-n1 mr-2 font-size-base align-middle"></i>
+                      4 comments
+                    </a>
+                  </li>
+                </ul>
+                <p class="card-text">Your customers are the bloodline of your business. They drive sales, increase awareness through recommendations and develop a lifetime commitment with your brand....</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- Team -->
+    <section class="container pt-lg-6 pt-sm-5 pb-lg-5 pb-4">
+      <div class="row">
+        <div class="col-lg-4 col-sm-5 order-sm-1 order-2">
+
+          <!-- Images binded to accordion -->
+          <div class="cs-binded-content mb-4">
+            <div id="team1" class="cs-binded-item active">
+              <img class="rounded" src="{{ url_for('static', filename="img/team/favour.jpg") }}"  alt="Team member">
+            </div>
+            <div id="team2" class="cs-binded-item">
+              <img class="rounded" src="{{ url_for('static', filename="img/team/john.JPG") }}"  alt="Team member">
+            </div>
+            <div id="team3" class="cs-binded-item">
+              <img class="rounded" src="{{ url_for('static', filename="img/team/yusuf.jpg") }}"  alt="Team member">
+            </div>
+            <div id="team4" class="cs-binded-item">
+              <img class="rounded" src="{{ url_for('static', filename="img/team/kolade.jpg") }}"  alt="Team member">
+            </div>
+          </div>
+          <a href="{{ url_for('main_site.about') }}" class="d-lg-none d-inline-block btn-block btn btn-outline-primary btn-pill">More about
+            us</a>
+        </div>
+        <div class="col-sm-7 order-sm-2 order-1 mb-sm-0 mb-4 ml-auto">
+          <div class="d-flex justify-content-between">
+            <div class="mr-3">
+              <h3 class="h6 mb-2 text-uppercase">Creative people are all here</h3>
+              <h2 class="h1 mb-lg-5 mb-3 pb-2">Meet our team</h2>
+            </div>
+            <div class="d-lg-block d-none">
+              <a href="{{ url_for("main_site.about") }}" class="btn btn-outline-primary btn-pill">More about us</a>
+            </div>
+          </div>
+
+          <!-- Accordion -->
+          <div class="accordion" id="accordionTeam">
+
+            <!-- Item -->
+            <div class="card">
+              <div class="card-header pt-0 pb-2" id="teamHeadingOne">
+                <h3 class="accordion-heading h5">
+                  <a href="#teamCollapseOne" role="button" data-toggle="collapse" data-binded-content="#team1"
+                    aria-expanded="true" aria-controls="teamCollapseOne">
+                    <span class="accordion-indicator mr-3"></span>
+                    Godsfavour Omonjade
+                  </a>
+                </h3>
+              </div>
+              <div class="collapse show" id="teamCollapseOne" aria-labelledby="teamHeadingOne"
+                data-parent="#accordionTeam">
+                <div class="card-body ml-n2">
+                  <h4 class="h6 mb-2 pb-1 font-weight-bold text-muted">CEO</h4>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item -->
+            <div class="card">
+              <div class="card-header py-2" id="teamHeadingTwo">
+                <h3 class="accordion-heading h5">
+                  <a href="#teamCollapseTwo" role="button" data-toggle="collapse" data-binded-content="#team2"
+                    aria-expanded="false" aria-controls="teamCollapseTwo" class="collapsed">
+                    <span class="accordion-indicator mr-3"></span>
+                    John David Udoumoh
+                  </a>
+                </h3>
+              </div>
+              <div class="collapse" id="teamCollapseTwo" aria-labelledby="teamHeadingTwo" data-parent="#accordionTeam">
+                <div class="card-body ml-n2">
+                  <h4 class="h6 mb-2 pb-1 font-weight-bold text-muted">Tech Lead</h4>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item -->
+            <div class="card">
+              <div class="card-header py-2" id="teamHeadingThree">
+                <h3 class="accordion-heading h5">
+                  <a href="#teamCollapseThree" role="button" data-toggle="collapse" data-binded-content="#team3"
+                    aria-expanded="false" aria-controls="teamCollapseThree" class="collapsed">
+                    <span class="accordion-indicator mr-3"></span>
+                    Yusuf Adebayo
+                  </a>
+                </h3>
+              </div>
+              <div class="collapse" id="teamCollapseThree" aria-labelledby="teamHeadingThree"
+                data-parent="#accordionTeam">
+                <div class="card-body ml-n2">
+                  <h4 class="h6 mb-2 pb-1 font-weight-bold text-muted"> Technical Project Director</h4>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item -->
+            <div class="card">
+              <div class="card-header py-2" id="teamHeadingFour">
+                <h3 class="accordion-heading h5">
+                  <a href="#teamCollapseFour" role="button" data-toggle="collapse" data-binded-content="#team4"
+                    aria-expanded="false" aria-controls="teamCollapseFour" class="collapsed">
+                    <span class="accordion-indicator mr-3"></span>
+                    Kolade Olayele
+                  </a>
+                </h3>
+              </div>
+              <div class="collapse" id="teamCollapseFour" aria-labelledby="teamHeadingFour"
+                data-parent="#accordionTeam">
+                <div class="card-body ml-n2">
+                  <h4 class="h6 mb-2 pb-1 font-weight-normal text-muted">Project Manager</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+<!-- / Main content: .cs-page-wrapper -->
+{% endblock %}
+
